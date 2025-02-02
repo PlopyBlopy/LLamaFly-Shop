@@ -1,0 +1,65 @@
+[
+    {
+        "type": "Group",
+        "name": "FSD",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "YpzfEuObCLKMFiqZ",
+        "iconColor": "rgb(0, 128, 128)"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\app",
+        "parent_id": "YpzfEuObCLKMFiqZ",
+        "fsPath": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\app",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "w4NoReY6tjPUMJIQ"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\entities",
+        "parent_id": "YpzfEuObCLKMFiqZ",
+        "fsPath": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\entities",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "fPTe3qHjU2wkMV8o"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\features",
+        "parent_id": "YpzfEuObCLKMFiqZ",
+        "fsPath": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\features",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "ANLsfrt1YMyJuCTi"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\pages",
+        "parent_id": "YpzfEuObCLKMFiqZ",
+        "fsPath": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\pages",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "LycTvrUGKuhOMoa6"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\shared",
+        "parent_id": "YpzfEuObCLKMFiqZ",
+        "fsPath": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\shared",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "ukdNCqoQvEtMJV6h"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\widgets",
+        "parent_id": "YpzfEuObCLKMFiqZ",
+        "fsPath": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\widgets",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "jptA9HZhCEBFqX1l"
+    }
+]
