@@ -54,9 +54,9 @@ export const CategoryDrawer = ({
     }
   };
 
-  const getCategoryIcon = (categoryId: string): React.ReactNode => {
+  const getCategoryIcon = (categoryTitle: string): React.ReactNode => {
     const categoryConfig = categoryIcons.find(
-      (config) => config.id === categoryId
+      (config) => config.title === categoryTitle
     );
     return categoryConfig ? categoryConfig.icon : defaultIcon;
   };
@@ -98,7 +98,7 @@ export const CategoryDrawer = ({
                         onClick={() => handleCategorySelect(category.id)}
                         selected={selectedCategory === category.id}>
                         <ListItemIcon>
-                          {getCategoryIcon(category.id)}
+                          {getCategoryIcon(category.title)}
                         </ListItemIcon>
                         <ListItemText primary={category.title} />
                       </ListItemButton>
@@ -114,7 +114,7 @@ export const CategoryDrawer = ({
                     {categorySelectedData.subcategories.map((subCategory) => (
                       <Grid item xs={6} key={subCategory.id}>
                         <Button
-                          startIcon={getCategoryIcon(subCategory.id)}
+                          startIcon={getCategoryIcon(subCategory.title)}
                           className={styles.customButton}
                           onClick={() => handleCategorySelect(subCategory.id)}>
                           {subCategory.title}
@@ -124,7 +124,9 @@ export const CategoryDrawer = ({
                             <ListItem key={subSubCategory.id} disablePadding>
                               <Button
                                 className={styles.customButton}
-                                startIcon={getCategoryIcon(subSubCategory.id)}
+                                startIcon={getCategoryIcon(
+                                  subSubCategory.title
+                                )}
                                 onClick={() =>
                                   handleCategorySelect(subSubCategory.id)
                                 }>
