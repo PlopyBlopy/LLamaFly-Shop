@@ -2,64 +2,159 @@
     {
         "type": "Group",
         "name": "FSD",
+        "parent_id": "YpzfEuObCLKMFiqZ",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "LX6IVnz7gENkP9fS"
+    },
+    {
+        "type": "Group",
+        "name": ".",
         "parent_id": null,
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "YpzfEuObCLKMFiqZ",
-        "iconColor": "rgb(0, 128, 128)"
+        "id": "Edc0lwq3AFNVxHry",
+        "iconColor": "rgb(24, 24, 24)"
     },
     {
         "type": "Directory",
-        "name": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\app",
-        "parent_id": "YpzfEuObCLKMFiqZ",
-        "fsPath": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\app",
+        "name": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\app",
+        "parent_id": "Edc0lwq3AFNVxHry",
+        "fsPath": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\app",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "w4NoReY6tjPUMJIQ"
+        "id": "aClIPXxDkQZGqVoS"
+    },
+    {
+        "type": "Group",
+        "name": ".",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "A7nx2rhovmQXINS9",
+        "iconColor": "rgb(24, 24, 24)"
+    },
+    {
+        "type": "Group",
+        "name": ".",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "Vs7QfgBKNdxoyJ8Z",
+        "iconColor": "rgb(24, 24, 24)"
+    },
+    {
+        "type": "Group",
+        "name": ".",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "1gH6oRFzmbKpBitV",
+        "iconColor": "rgb(24, 24, 24)"
+    },
+    {
+        "type": "Group",
+        "name": ".",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "cBb3eLM91h0mEwnU",
+        "iconColor": "rgb(24, 24, 24)"
+    },
+    {
+        "type": "Group",
+        "name": ".",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "AtCcGkaxHqTFNe03",
+        "iconColor": "rgb(24, 24, 24)"
     },
     {
         "type": "Directory",
-        "name": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\entities",
-        "parent_id": "YpzfEuObCLKMFiqZ",
-        "fsPath": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\entities",
+        "name": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\pages",
+        "parent_id": "A7nx2rhovmQXINS9",
+        "fsPath": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\pages",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "fPTe3qHjU2wkMV8o"
+        "id": "2m0DNQkbJWHqcB8d"
     },
     {
         "type": "Directory",
-        "name": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\features",
-        "parent_id": "YpzfEuObCLKMFiqZ",
-        "fsPath": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\features",
+        "name": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\widgets",
+        "parent_id": "Vs7QfgBKNdxoyJ8Z",
+        "fsPath": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\widgets",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "ANLsfrt1YMyJuCTi"
+        "id": "gZtTDGA5ioLY0F1m"
     },
     {
         "type": "Directory",
-        "name": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\pages",
-        "parent_id": "YpzfEuObCLKMFiqZ",
-        "fsPath": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\pages",
+        "name": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\features",
+        "parent_id": "1gH6oRFzmbKpBitV",
+        "fsPath": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\features",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "LycTvrUGKuhOMoa6"
+        "id": "MGaVHuSZ659fJQwj"
     },
     {
         "type": "Directory",
-        "name": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\shared",
-        "parent_id": "YpzfEuObCLKMFiqZ",
-        "fsPath": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\shared",
+        "name": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\entities",
+        "parent_id": "cBb3eLM91h0mEwnU",
+        "fsPath": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\entities",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "ukdNCqoQvEtMJV6h"
+        "id": "6qTelQIZ3rghBCcv"
     },
     {
         "type": "Directory",
-        "name": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\widgets",
-        "parent_id": "YpzfEuObCLKMFiqZ",
-        "fsPath": "c:\\Users\\Alexey\\source\\repos\\FSDreactTestApp\\LamaFly\\src\\widgets",
+        "name": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\shared",
+        "parent_id": "AtCcGkaxHqTFNe03",
+        "fsPath": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\shared",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "jptA9HZhCEBFqX1l"
+        "id": "zRCbcPgWQLsAhf7r"
+    },
+    {
+        "type": "Group",
+        "name": "Favorite",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "tu7HPJxayq4ZmrpB"
+    },
+    {
+        "type": "Group",
+        "name": "Routing",
+        "parent_id": "tu7HPJxayq4ZmrpB",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "ScPehl4A18TECZRN"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\app\\routing",
+        "parent_id": "tu7HPJxayq4ZmrpB",
+        "fsPath": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\app\\routing",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "WaIsEtxO8AwdNjn3"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\app\\routing",
+        "parent_id": "ScPehl4A18TECZRN",
+        "fsPath": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\app\\routing",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "4gDe8FdVpScHRBAb"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\shared\\routing\\routes",
+        "parent_id": "ScPehl4A18TECZRN",
+        "fsPath": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\shared\\routing\\routes",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "mELzY5oGQNAvVl9M"
     }
 ]

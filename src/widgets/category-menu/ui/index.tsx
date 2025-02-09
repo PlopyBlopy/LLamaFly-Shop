@@ -1,27 +1,28 @@
 import { observer } from "mobx-react-lite";
 import { CategoryDrawer } from "../../../features/category-drawer";
-import { categoryStore } from "../../../entities/category";
 import { Result } from "antd";
-import { productStore } from "../../../entities/product";
 import {
   SEARCH,
   SORTORDER,
   SORTPROP,
-} from "../../../entities/product/config/filters/default-values";
+} from "../../../entities/stores/filter-store";
+import { useStore } from "../../../shared/contexts/store-context";
+import { useAppNavigate } from "../../../shared/routing/routes";
 
-export const CategoryMenu = observer(() => {
+export const CategoryComponent = observer(() => {
+  const { goMain } = useAppNavigate();
+
+  const rootStore = useStore();
   const {
-    store: {
+    productCardStore: { getProductCardListAction },
+    categoryStore: {
       categoryList,
       categoryListError,
       isLoading,
       getCategoryListAction,
     },
-  } = categoryStore;
-
-  const {
-    store: { setFilterParams, getProductCardListAction },
-  } = productStore;
+    filterStore: { setFilterParams },
+  } = rootStore;
 
   const onCategorySelect = async (categoryId: string) => {
     console.log("Category select: " + categoryId);
@@ -33,7 +34,7 @@ export const CategoryMenu = observer(() => {
 
     await getProductCardListAction();
 
-    // await getCategoryByIdAction(); // открыть - передать в параметры категрию, сбросить все остальные фильтры
+    onPageOpen();
   };
 
   const onCategoryShow = async () => {
@@ -43,6 +44,10 @@ export const CategoryMenu = observer(() => {
   if (categoryListError) {
     return <Result title={categoryListError} />;
   }
+
+  const onPageOpen = () => {
+    goMain();
+  };
 
   return (
     <div>

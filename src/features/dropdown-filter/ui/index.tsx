@@ -5,7 +5,7 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
-import { ProductFilter } from "../../../entities/product";
+import { ProductFilter } from "../../../shared/filter";
 
 type Props = {
   label: string;

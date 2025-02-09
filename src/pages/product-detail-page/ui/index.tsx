@@ -1,24 +1,26 @@
 import { Result } from "antd";
 import { observer } from "mobx-react-lite";
-import { productStore } from "../../../entities/product";
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { ProductDetail } from "../../../features/product-detail";
 import { LoadingCircle } from "../../../features/loading-circle";
+import { useStore } from "../../../shared/contexts/store-context";
 
 export const ProductDetailPage = observer(() => {
+  const rootStore = useStore();
+
   const {
-    store: { getProductByIdAction, isLoading, product, productError, images },
-  } = productStore;
+    productStore: { getProductAction, product, productError, isLoading },
+  } = rootStore;
 
   const [searchParams] = useSearchParams(); // Получаем searchParams
   const id = searchParams.get("id");
 
   useEffect(() => {
     if (id) {
-      getProductByIdAction(id);
+      getProductAction(id);
     }
-  }, [id, getProductByIdAction]);
+  }, [id, getProductAction]);
 
   if (productError) {
     return <Result title={productError} />;
@@ -36,10 +38,11 @@ export const ProductDetailPage = observer(() => {
           {productError ? (
             <Result title={productError} />
           ) : (
-            <ProductDetail product={product} image={images[product.id]} />
+            <ProductDetail product={product} />
           )}
         </>
       )}
     </div>
   );
 });
+// image={images[product.id]}

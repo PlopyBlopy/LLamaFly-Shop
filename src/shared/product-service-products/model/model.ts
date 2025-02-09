@@ -1,5 +1,6 @@
 export type Product = {
     id: string;
+    image: string;
     title: string;
     description: string;
     price: number;
@@ -10,6 +11,7 @@ export type Product = {
 
 export type ProductCard = {
     id: string;
+    image: string;
     title: string;
     price: number;
     rating: number;

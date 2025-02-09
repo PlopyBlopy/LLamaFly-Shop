@@ -1,45 +1,42 @@
 import { Result } from "antd";
 import {
-  productStore,
   sortOrderFilter,
   sortPropFilter,
-} from "../../../entities/product";
+} from "../../../entities/stores/filter-store";
 import { observer } from "mobx-react-lite";
-import { ProductCard } from "../../../features/product-card/index";
+import { ProductItemCard } from "../../../features/product-card/index";
 import { LoadingCircle } from "../../../features/loading-circle";
 import styles from "./index.module.css";
 import { DropDownFilter } from "../../../features/dropdown-filter";
 import { QueryParams } from "../../../shared/product-service-products";
-import { ImageUploader } from "../../../features/image-uploader/index";
+import { useStore } from "../../../shared/contexts/store-context";
+import { useAppNavigate } from "../../../shared/routing/routes";
 
 export const ProductsMainPage = observer(() => {
+  const { goToProduct } = useAppNavigate();
+  const rootStore = useStore();
+
   const {
-    store: {
-      productList,
-      productListError,
-      images,
-      filterParams,
+    productCardStore: {
+      productCardList,
+      productCardListError,
       isLoading,
       getProductCardListAction,
-      setFilterParams,
     },
-  } = productStore;
+    filterStore: { FilterParams, setFilterParams },
+  } = rootStore;
 
-  if (productListError) {
-    return <Result title={productListError} />;
+  if (productCardListError) {
+    return <Result title={productCardListError} />;
   }
 
-  // if (productListError) {
-  //   return (
-  //     <>
-  //       <ImageUploader />
-  //     </>
-  //   );
-  // }
-
   const handleFilterChange = (key: keyof QueryParams, value: string) => {
-    setFilterParams({ ...filterParams, [key]: value });
+    setFilterParams({ ...FilterParams, [key]: value });
     getProductCardListAction();
+  };
+
+  const onProductDetailPageOpen = (cardTitle: string, cardId: string) => {
+    goToProduct(cardTitle, cardId);
   };
 
   return (
@@ -48,7 +45,7 @@ export const ProductsMainPage = observer(() => {
         <DropDownFilter
           label={"Сортировать по"}
           filters={sortPropFilter}
-          currentValue={filterParams.sortProp}
+          currentValue={FilterParams.sortProp}
           onValueChange={(value) => {
             handleFilterChange("sortProp", value);
           }}
@@ -56,7 +53,7 @@ export const ProductsMainPage = observer(() => {
         <DropDownFilter
           label={"Порядок сортировки"}
           filters={sortOrderFilter}
-          currentValue={filterParams.sortOrder}
+          currentValue={FilterParams.sortOrder}
           onValueChange={(value) => {
             handleFilterChange("sortOrder", value);
           }}
@@ -67,14 +64,11 @@ export const ProductsMainPage = observer(() => {
         <LoadingCircle />
       ) : (
         <div className={styles.grid}>
-          {productList?.map(({ id, title, price, rating }) => (
-            <ProductCard
-              key={id}
-              id={id}
-              image={images[id]}
-              title={title}
-              price={price}
-              rating={rating}
+          {productCardList?.map((product) => (
+            <ProductItemCard
+              key={product.id}
+              card={product}
+              onCardClick={onProductDetailPageOpen}
             />
           ))}
         </div>

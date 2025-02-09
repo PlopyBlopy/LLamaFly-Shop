@@ -10,14 +10,13 @@ import {
   Divider,
   Chip,
 } from "@mui/material";
-import { Product } from "../../../shared/product-service-products";
 import styles from "./index.module.css";
+import { Product } from "../../../shared/product-service-products";
+import { observer } from "mobx-react-lite";
 type Props = {
-  product?: Product;
-  image?: string;
+  product: Product;
 };
-
-export const ProductDetail = ({ product, image }: Props) => {
+export const ProductDetail = observer(({ product }: Props) => {
   if (!product) {
     return <div>Product not found</div>; // Обработка случая, когда product отсутствует
   }
@@ -32,7 +31,7 @@ export const ProductDetail = ({ product, image }: Props) => {
           <Grid item xs={12} md={6}>
             <CardMedia
               component="img"
-              image={image}
+              image={product.image}
               alt={title}
               className={styles.image}
             />
@@ -89,4 +88,4 @@ export const ProductDetail = ({ product, image }: Props) => {
       </Card>
     </Container>
   );
-};
+});

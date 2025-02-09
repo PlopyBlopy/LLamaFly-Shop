@@ -2,7 +2,7 @@ import { makeAutoObservable, runInAction } from "mobx";
 import { Category } from "../../../../shared/product-service-categories";
 import { getCategories } from "../../../../shared/product-service-categories";
 
-class CategoryStore {
+class CategoryStoree {
     categoryList: Category[] = [];
     categoryListError = '';
     isLoading = false;
@@ -34,4 +34,4 @@ class CategoryStore {
     }
 }
 
-export const store = new CategoryStore(); 
+export const store = new CategoryStoree(); 
