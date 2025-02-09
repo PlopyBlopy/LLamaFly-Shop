@@ -1,110 +1,145 @@
-import React, { useState } from "react";
-import { Button, TextField, Box, Typography, Input } from "@mui/material";
-import { CreateImage } from "../../../shared/image-service-images";
-import { uploadImages } from "../../../shared/image-service-images/index";
+import React, { useState, useCallback } from "react";
+import {
+  DndContext,
+  DragOverlay,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import {
+  arrayMove,
+  SortableContext,
+  rectSortingStrategy,
+} from "@dnd-kit/sortable";
+import { restrictToWindowEdges } from "@dnd-kit/modifiers";
+import { Box, Grid, Typography, Paper } from "@mui/material";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import { useDropzone } from "react-dropzone";
+import { SortableItem } from "../../image-sortable";
 
-export const ImageUploader = () => {
-  const [productId, setProductId] = useState(
-    "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+interface ImageUploaderProps {
+  onImagesChange: (images: string[]) => void;
+}
+
+export const ImageUploader: React.FC<ImageUploaderProps> = ({
+  onImagesChange,
+}) => {
+  const [previews, setPreviews] = useState<string[]>([]);
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor)
   );
-  const [images, setImages] = useState<CreateImage[]>([]);
 
-  // Обработчик изменения productId
-  const handleProductIdChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setProductId(event.target.value);
+  const onDrop = useCallback(
+    (acceptedFiles: File[]) => {
+      const newPreviews = acceptedFiles.map((file) =>
+        URL.createObjectURL(file)
+      );
+      setPreviews((prev) => [...prev, ...newPreviews]);
+      onImagesChange([...previews, ...newPreviews]);
+    },
+    [previews, onImagesChange]
+  );
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: { "image/*": [".jpeg", ".jpg", ".png", ".gif"] },
+  });
+
+  const handleDragStart = (event: any) => {
+    setActiveId(event.active.id);
   };
 
-  // Обработчик выбора файлов
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files) {
-      const files = Array.from(event.target.files);
-      const newImages = files.map((file, index) => ({
-        order: index + 1, // Порядковый номер начинается с 1
-        image: file,
-      }));
-      setImages(newImages);
+  const handleDragEnd = (event: any) => {
+    const { active, over } = event;
+
+    if (active.id !== over.id) {
+      setPreviews((items) => {
+        const oldIndex = items.findIndex((item) => item === active.id);
+        const newIndex = items.findIndex((item) => item === over.id);
+        const newItems = arrayMove(items, oldIndex, newIndex);
+        onImagesChange(newItems);
+        return newItems;
+      });
     }
+
+    setActiveId(null);
   };
 
-  // Обработчик изменения порядка
-  const handleOrderChange = (index: number, order: number) => {
-    const updatedImages = [...images];
-    updatedImages[index].order = order;
-    setImages(updatedImages);
-  };
-
-  // Обработчик отправки данных
-  const handleSubmit = async () => {
-    if (!productId || images.length === 0) {
-      alert("Please enter a Product ID and select at least one image.");
-      return;
-    }
-
-    try {
-      await uploadImages({ productId, images });
-      alert("Images uploaded successfully!");
-    } catch (error) {
-      console.error("Upload failed:", error);
-      alert("Upload failed. Please try again.");
-    }
+  const handleRemove = (index: number) => {
+    const newPreviews = previews.filter((_, i) => i !== index);
+    setPreviews(newPreviews);
+    onImagesChange(newPreviews);
   };
 
   return (
-    <Box sx={{ maxWidth: 500, margin: "auto", padding: 3 }}>
-      <Typography variant="h5" gutterBottom>
-        Upload Images
-      </Typography>
+    <Box>
+      <DndContext
+        sensors={sensors}
+        modifiers={[restrictToWindowEdges]}
+        collisionDetection={closestCenter}
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}>
+        <SortableContext items={previews} strategy={rectSortingStrategy}>
+          <Grid container spacing={2} sx={{ mb: 2 }}>
+            {previews.map((preview, index) => (
+              <Grid item xs={6} sm={4} md={3} key={preview}>
+                <SortableItem
+                  id={preview}
+                  preview={preview}
+                  onRemove={() => handleRemove(index)}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </SortableContext>
 
-      {/* Поле для ввода Product ID */}
-      <TextField
-        label="Product ID"
-        value={productId}
-        onChange={handleProductIdChange}
-        fullWidth
-        margin="normal"
-        required
-      />
+        <DragOverlay>
+          {activeId ? (
+            <img
+              src={activeId}
+              alt=""
+              style={{
+                width: 150,
+                height: 150,
+                objectFit: "cover",
+                borderRadius: 4,
+                boxShadow: "0px 5px 15px rgba(0,0,0,0.2)",
+              }}
+            />
+          ) : null}
+        </DragOverlay>
+      </DndContext>
 
-      {/* Поле для выбора файлов */}
-      <Input
-        type="file"
-        inputProps={{ multiple: true }}
-        onChange={handleFileChange}
-        fullWidth
-        sx={{ marginBottom: 2 }}
-      />
-
-      {/* Список выбранных файлов с полем для порядка */}
-      {images.map((image, index) => (
+      <Paper
+        variant="outlined"
+        sx={{
+          p: 2,
+          border: "2px dashed #aaa",
+          backgroundColor: isDragActive ? "action.hover" : "background.paper",
+          cursor: "pointer",
+        }}
+        {...getRootProps()}>
+        <input {...getInputProps()} />
         <Box
-          key={index}
           sx={{
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
-            gap: 2,
-            marginBottom: 2,
+            gap: 1,
           }}>
-          <Typography variant="body1">{image.image.name}</Typography>
-          <TextField
-            label="Order"
-            type="number"
-            value={image.order}
-            onChange={(e) => handleOrderChange(index, parseInt(e.target.value))}
-            sx={{ width: 100 }}
-          />
+          <CloudUploadIcon fontSize="large" />
+          <Typography variant="body2" color="textSecondary">
+            {isDragActive
+              ? "Отпустите для загрузки"
+              : "Перетащите сюда изображения или кликните для выбора"}
+          </Typography>
         </Box>
-      ))}
-
-      {/* Кнопка отправки */}
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleSubmit}
-        fullWidth>
-        Upload Images
-      </Button>
+      </Paper>
     </Box>
   );
 };

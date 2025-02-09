@@ -1,7 +1,9 @@
+import { ProductAddComponent } from "../../../widgets/product-add";
+
 export const AddProductPage = () => {
   return (
     <>
-      <h1>Add Product Page</h1>
+      <ProductAddComponent />
     </>
   );
 };

@@ -17,6 +17,7 @@ export type ProductCard = {
     rating: number;
 }
 
+
 export type QueryParams = {
     search?: string;
     categoryId?: string;
