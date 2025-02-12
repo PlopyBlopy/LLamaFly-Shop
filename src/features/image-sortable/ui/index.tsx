@@ -4,13 +4,14 @@ import { CSS } from "@dnd-kit/utilities";
 import { Box, IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Zoom from "@mui/material/Zoom";
+import styles from "./index.module.css";
 
 export const SortableItem = ({
   id,
   preview,
   onRemove,
 }: {
-  id: string;
+  id: number;
   preview: string;
   onRemove: () => void;
 }) => {
@@ -20,8 +21,9 @@ export const SortableItem = ({
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const style = {
-    transform: CSS.Transform.toString(transform),
+    transform: CSS.Translate.toString(transform),
     transition,
+    touchAction: "none",
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -32,15 +34,8 @@ export const SortableItem = ({
     let x = e.clientX + offset;
     let y = e.clientY + offset;
 
-    // Проверка правой границы
-    if (x + 500 > viewportWidth) {
-      x = viewportWidth - 500 - offset;
-    }
-
-    // Проверка нижней границы
-    if (y + 500 > viewportHeight) {
-      y = viewportHeight - 500 - offset;
-    }
+    if (x + 500 > viewportWidth) x = viewportWidth - 500 - offset;
+    if (y + 500 > viewportHeight) y = viewportHeight - 500 - offset;
 
     setPosition({ x, y });
   };
@@ -49,71 +44,39 @@ export const SortableItem = ({
     <Box
       ref={setNodeRef}
       style={style}
-      sx={{
-        position: "relative",
-        cursor: "grab",
-        "&:active": {
-          cursor: "grabbing",
-        },
-      }}
-      {...attributes}
-      {...listeners}
+      className={styles.container}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onMouseMove={handleMouseMove}>
-      <img
-        src={preview}
-        alt={`Preview ${id}`}
-        style={{
-          width: "100%",
-          height: 150,
-          objectFit: "cover",
-          borderRadius: 4,
-          pointerEvents: "none",
-        }}
-      />
+      onMouseLeave={() => setIsHovered(false)}>
+      <Box
+        {...attributes}
+        {...listeners}
+        onMouseMove={handleMouseMove}
+        className={styles.dragHandle}>
+        <img
+          src={preview}
+          alt={`Preview ${id}`}
+          className={styles.previewImage}
+        />
+      </Box>
 
-      {/* Кнопка удаления */}
       <IconButton
-        sx={{
-          position: "absolute",
-          top: 4,
-          right: 4,
-          color: "error.main",
-          backgroundColor: "background.paper",
-        }}
+        className={styles.deleteButton}
         onClick={(e) => {
           e.stopPropagation();
           onRemove();
-        }}>
+        }}
+        color="error">
         <DeleteIcon fontSize="small" />
       </IconButton>
 
-      {/* Превью при наведении */}
       <Zoom in={isHovered}>
         <Box
-          sx={{
-            position: "fixed",
+          className={styles.previewHover}
+          style={{
             left: position.x,
             top: position.y,
-            zIndex: 9999,
-            pointerEvents: "none",
-            boxShadow: 3,
-            borderRadius: 1,
-            overflow: "hidden",
-            maxWidth: 500,
-            maxHeight: 500,
-            bgcolor: "background.paper",
           }}>
-          <img
-            src={preview}
-            alt="Full preview"
-            style={{
-              maxWidth: "100%",
-              maxHeight: "100%",
-              objectFit: "contain",
-            }}
-          />
+          <img src={preview} alt="Full preview" />
         </Box>
       </Zoom>
     </Box>

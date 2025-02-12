@@ -15,7 +15,7 @@ export const ProfileComponent = observer(() => {
   const { goToProfile, goToSettings, goToAddProduct } = useAppNavigate();
   const rootStore = useStore();
   const {
-    profileSellerStore: { profile, profileError, isSeller, switchProfile },
+    profileStore: { profile, profileError, isSeller, switchProfile },
   } = rootStore;
 
   if (profile == null) {

@@ -9,13 +9,21 @@ import {
   MenuItem,
   Select,
   SelectChangeEvent,
+  Typography,
 } from "@mui/material";
 import { ProductForm } from "..";
 import { ImageUploader } from "../../image-uploader";
+import { Image } from "../../../shared/image-service-images";
+
+interface Category {
+  id: string;
+  title: string;
+  subcategories: Category[];
+}
 
 interface ProductFormProps {
   onSubmit: (formData: ProductForm) => void;
-  categories: string[];
+  categories: Category[];
   sellers: string[];
 }
 
@@ -31,7 +39,43 @@ export const ProductAddForm: React.FC<ProductFormProps> = ({
     categoryId: "",
     sellerId: "",
   });
-  const [images, setImages] = useState<string[]>([]);
+  const [images, setImages] = useState<Image[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<Category[][]>([
+    [],
+  ]);
+
+  const handleCategoryChange = (level: number, categoryId: string) => {
+    const selectedCategory = findCategory(categories, categoryId);
+    const newSelected = selectedCategories.slice(0, level);
+    newSelected[level] = [selectedCategory];
+
+    if (selectedCategory?.subcategories?.length > 0) {
+      newSelected[level + 1] = [];
+    }
+
+    setSelectedCategories(newSelected);
+    setFormData((prev) => ({
+      ...prev,
+      categoryId: selectedCategory?.subcategories?.length ? "" : categoryId,
+    }));
+  };
+
+  const findCategory = (
+    categories: Category[],
+    id: string
+  ): Category | null => {
+    for (const category of categories) {
+      if (category.id === id) return category;
+      const found = findCategory(category.subcategories, id);
+      if (found) return found;
+    }
+    return null;
+  };
+
+  const getAvailableCategories = (level: number): Category[] => {
+    if (level === 0) return categories;
+    return selectedCategories[level - 1][0]?.subcategories || [];
+  };
 
   const handleChange = (
     e:
@@ -94,21 +138,33 @@ export const ProductAddForm: React.FC<ProductFormProps> = ({
           />
         </Grid>
 
-        <Grid item xs={12} sm={6}>
-          <FormControl fullWidth required>
-            <InputLabel>Category</InputLabel>
-            <Select
-              name="categoryId"
-              value={formData.categoryId}
-              label="Category"
-              onChange={handleChange}>
-              {categories.map((category) => (
-                <MenuItem key={category} value={category}>
-                  {category}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+        {/* Каскадный выбор категорий */}
+        <Grid item xs={12}>
+          <Typography variant="subtitle1" gutterBottom>
+            Выбор категории
+          </Typography>
+          <Box display="flex" gap={2} flexWrap="wrap">
+            {selectedCategories.map((_, level) => {
+              const availableCategories = getAvailableCategories(level);
+              return availableCategories.length > 0 ? (
+                <FormControl key={level} sx={{ minWidth: 200 }}>
+                  <InputLabel>{`Уровень ${level + 1}`}</InputLabel>
+                  <Select
+                    value={selectedCategories[level]?.[0]?.id || ""}
+                    onChange={(e) =>
+                      handleCategoryChange(level, e.target.value)
+                    }
+                    label={`Уровень ${level + 1}`}>
+                    {availableCategories.map((category) => (
+                      <MenuItem key={category.id} value={category.id}>
+                        {category.title}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              ) : null;
+            })}
+          </Box>
         </Grid>
 
         <Grid item xs={12} sm={6}>

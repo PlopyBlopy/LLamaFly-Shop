@@ -4,7 +4,7 @@ import ProductImageStore from "../../product-image-store/model";
 import ProductCardStore from "../../product-card-store/model";
 import ProductStore from "../../product-store/model";
 import CategoryStore from "../../category-store/model";
-import ProfileSellerStore from "../../profile-store/model";
+import ProfileStore from "../../profile-store/model";
 
 export class RootStore 
 {
@@ -13,7 +13,7 @@ export class RootStore
     productCardStore: ProductCardStore;
     productStore: ProductStore;
     categoryStore: CategoryStore;
-    profileSellerStore: ProfileSellerStore;
+    profileStore: ProfileStore;
 
   constructor() {
     this.productStore = new ProductStore();
@@ -21,7 +21,7 @@ export class RootStore
     this.categoryStore = new CategoryStore();
     this.filterStore = new FilterStore();
     this.productImageStore = new ProductImageStore();
-    this.profileSellerStore = new ProfileSellerStore();
+    this.profileStore = new ProfileStore();
 
     this.productCardStore.setDependencies({ filterStore: this.filterStore, productImageStore: this.productImageStore });
     this.productStore.setDependencies({ productImageStore: this.productImageStore });

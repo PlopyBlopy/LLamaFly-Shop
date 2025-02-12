@@ -1,8 +1,10 @@
+import { Image } from "../../../shared/image-service-images";
+
 export type ProductForm = {
-    images: string[];
-    title: string;
-    description: string;
-    price: number;
-    categoryId: string;
-    sellerId: string;
+  images: Image[];
+  title: string;
+  description: string;
+  price: number;
+  categoryId: string;
+  sellerId: string;
 };

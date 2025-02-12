@@ -1,0 +1,64 @@
+.container {
+  position: relative;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Остальные стили остаются без изменений */
+
+.dragOverlay {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.dragImage {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dropzone {
+  padding: 16px;
+  border: 2px dashed #aaa;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.dropzoneActive {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.uploadContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.gridContainer {
+  margin-bottom: 16px;
+}
+
+.gridItem {
+  position: relative;
+  cursor: grab;
+}
+
+.gridItem:active {
+  cursor: grabbing;
+}
+
+.previewImage {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  pointer-events: none;
+}

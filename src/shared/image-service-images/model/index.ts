@@ -1,4 +1,4 @@
-export type CreateImage = {
-    order: number;
-    image: File;
-}
+export type Image = {
+  order: number;
+  image: File;
+};

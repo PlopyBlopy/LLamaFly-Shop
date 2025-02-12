@@ -17,6 +17,14 @@ export type ProductCard = {
     rating: number;
 }
 
+export type ProductCreate = {
+    title: string;
+    description: string;
+    price: number;
+    categoryId: string;
+    sellerId: string;
+}
+
 
 export type QueryParams = {
     search?: string;
