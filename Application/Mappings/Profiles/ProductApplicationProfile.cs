@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
 using Application.Mappings.Converters;
-using Core.Contracts.Dto;
-using Core.Entities;
 using Core.Models;
+using Core.Contracts.Dtos;
 
 namespace Application.Mappings.Profiles
 {
@@ -11,7 +10,6 @@ namespace Application.Mappings.Profiles
         public ProductApplicationProfile()
         {
             CreateMap<ProductCreateDto, Product>().ConvertUsing<ProductCreateDtoToModelConverter>();
-            CreateMap<Product, ProductEntity>().ConvertUsing<ProductModelToEntityConverter>();
         }
     }
 }

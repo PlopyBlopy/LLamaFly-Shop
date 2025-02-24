@@ -1,7 +1,7 @@
-﻿using API.Contracts.Requests;
-using AutoMapper;
+﻿using AutoMapper;
 using Core.Configs;
-using Core.Contracts.Dto;
+using Core.Contracts.Requests;
+using Core.Contracts.Dtos;
 
 namespace API.Mappings.Converters
 {

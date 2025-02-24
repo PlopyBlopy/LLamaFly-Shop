@@ -20,3 +20,4 @@ C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\obj\Debug\net8.0\Cor
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\obj\Debug\net8.0\refint\Core.dll
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\obj\Debug\net8.0\Core.pdb
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\obj\Debug\net8.0\ref\Core.dll
+C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\obj\Debug\net8.0\Core.sourcelink.json

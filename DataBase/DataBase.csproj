@@ -23,9 +23,4 @@
     </Reference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Mappings\Converters\" />
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
 </Project>

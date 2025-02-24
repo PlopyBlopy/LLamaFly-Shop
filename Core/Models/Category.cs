@@ -2,16 +2,14 @@
 
 namespace Core.Models
 {
-    public class Category : ICategoryConstraints, ICategoryTitleConstraint
+    public class Category : ModelBase, ICategoryConstraints, ICategoryTitleConstraint
     {
-        public Guid Id { get; }
         public string Title { get; }
-        public Guid ParentCategoryId { get; }
-        public ICollection<Guid> SubcategoriesIds { get; }
+        public Guid? ParentCategoryId { get; }
+        public ICollection<Category> SubcategoriesIds { get; }
 
-        public Category(Guid id, string title, Guid parentCategoryId, ICollection<Guid> subcategoriesIds)
+        public Category(Guid id, string title, Guid? parentCategoryId, ICollection<Category> subcategoriesIds) : base(id)
         {
-            Id = id;
             Title = title;
             ParentCategoryId = parentCategoryId;
             SubcategoriesIds = subcategoriesIds;

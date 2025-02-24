@@ -1,8 +1,8 @@
 ﻿using API.Mappings.Converters;
 using AutoMapper;
-using Core.Contracts.Dto;
-using API.Contracts.Requests;
-using API.Contracts.Responses;
+using Core.Contracts.Requests;
+using Core.Contracts.Responses;
+using Core.Contracts.Dtos;
 
 namespace API.Mappings.Profiles
 {
@@ -10,10 +10,12 @@ namespace API.Mappings.Profiles
     {
         public ProductApiProfile()
         {
-            CreateMap<ProductCreateRequest, ProductCreateDto>();
+            CreateMap<ProductCreateRequest, ProductCreateDto>().ConvertUsing<ProductCreateRequestToCreateDtoConverter>();
             CreateMap<ProductFiltersRequest, ProductFiltersDto>();
+            CreateMap<ProductUpdateRequest, ProductUpdateDto>().ConvertUsing<ProductUpdateRequestToUpdateDtoConverter>();
 
-            CreateMap<ProductDto, ProductResponse>().ConvertUsing<ProductDtoToProductResponseConverter>();
+            CreateMap<ProductDto, ProductResponse>().ConvertUsing<ProductDtoToResponseConverter>();
+            CreateMap<ProductSellerDto, ProductSellerResponse>().ConvertUsing<ProductSellerDtoToSellerResponseConverter>();
         }
     }
 }

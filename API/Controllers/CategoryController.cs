@@ -1,10 +1,10 @@
-﻿using API.Contracts.Requests;
-using Application.Validation.Models;
-using AutoMapper;
-using Core.Contracts.Dto;
+﻿using AutoMapper;
 using Core.Interfaces;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
+using Core.Contracts.Requests;
+using Microsoft.AspNetCore.Authorization;
+using Core.Contracts.Dtos;
 
 namespace API.Controllers
 {
@@ -14,41 +14,50 @@ namespace API.Controllers
     {
         private readonly ICategoryService _service;
         private readonly IMapper _mapper;
-        private readonly IValidator<CategoryCreateDto> _validator;
+        private readonly IValidator<CategoryCreateRequest> _validator;
 
-        public CategoryController(ICategoryService service, IMapper mapper, IValidator<CategoryCreateDto> validator)
+        public CategoryController(ICategoryService service, IMapper mapper, IValidator<CategoryCreateRequest> validator)
         {
             _service = service;
             _mapper = mapper;
             _validator = validator;
         }
 
-        [HttpPost("Add")]
+        [Authorize(Policy = "Admin")]
+        [HttpPost("add")]
         public async Task<ActionResult> Add([FromBody] CategoryCreateRequest request, CancellationToken ct)
         {
-            CategoryCreateDto dto = _mapper.Map<CategoryCreateDto>(request);
-
-            var validationResult = _validator.Validate(dto);
+            var validationResult = _validator.Validate(request);
             if (!validationResult.IsValid)
             {
                 return BadRequest(validationResult.Errors);
             }
 
-            (bool, string) result = await _service.Add(dto, ct);
+            CategoryCreateDto dto = _mapper.Map<CategoryCreateDto>(request);
 
-            if (!result.Item1)
-                return NotFound(result.Item2);
+            await _service.Add(dto, ct);
+
             return Created();
         }
 
         [HttpGet("all")]
         public async Task<ActionResult<IEnumerable<CategoryDto>>> GetAll(CancellationToken ct)
         {
-            IEnumerable<CategoryDto>? response = await _service.GetAll(ct);
+            var result = await _service.GetAll(ct);
 
-            if (response == null)
+            if (result == null)
                 return NotFound();
-            return Ok(response);
+
+            return Ok(result);
+        }
+
+        [Authorize(Policy = "Admin")]
+        [HttpDelete("delete")]
+        public async Task<ActionResult> Delete([FromQuery] Guid id, CancellationToken ct)
+        {
+            await _service.Delete(id, ct);
+
+            return Ok();
         }
     }
 }

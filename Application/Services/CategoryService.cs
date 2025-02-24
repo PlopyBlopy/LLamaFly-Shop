@@ -1,8 +1,8 @@
-﻿using AutoMapper;
-using Core.Contracts.Dto;
-using Core.Entities;
+﻿using Application.Utilities;
+using AutoMapper;
 using Core.Interfaces;
 using Core.Models;
+using Core.Contracts.Dtos;
 
 namespace Application.Services
 {
@@ -10,41 +10,34 @@ namespace Application.Services
     {
         private readonly ICategoryRepository _repository;
         private readonly IMapper _mapper;
+        private readonly BuildCategoryHierarchy _buildCategoryHierarchy;
 
-        public CategoryService(ICategoryRepository repository, IMapper mapper)
+        public CategoryService(ICategoryRepository repository, IMapper mapper, BuildCategoryHierarchy buildCategoryHierarchy)
         {
             _repository = repository;
             _mapper = mapper;
+            _buildCategoryHierarchy = buildCategoryHierarchy;
         }
 
-        public async Task<(bool, string)> Add(CategoryCreateDto dto, CancellationToken ct)
+        public async Task Add(CategoryCreateDto dto, CancellationToken ct)
         {
             Category model = _mapper.Map<Category>(dto);
 
-            CategoryEntity entity = _mapper.Map<CategoryEntity>(model);
+            await _repository.Add(model, ct);
+        }
 
-            return await _repository.Add(entity, ct);
+        public async Task<IEnumerable<CategoryDto>> GetAll(CancellationToken ct)
+        {
+            var flatList = await _repository.GetAll(ct);
+
+            var result = _buildCategoryHierarchy.BuildHierarchy(flatList);
+
+            return result;
         }
 
         public async Task Delete(Guid id, CancellationToken ct)
         {
-            throw new NotImplementedException();
-        }
-
-        public async Task<IEnumerable<CategoryDto?>> GetAll(CancellationToken ct)
-        {
-            IEnumerable<CategoryDto>? dtos = await _repository.GetAll(ct);
-            return dtos;
-        }
-
-        public async Task<CategoryDto> GetById(Guid id, CancellationToken ct)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task Update(CategoryDto dto, CancellationToken ct)
-        {
-            throw new NotImplementedException();
+            await _repository.Delete(id, ct);
         }
     }
 }

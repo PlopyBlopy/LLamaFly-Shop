@@ -2,25 +2,24 @@
 
 namespace Core.Models
 {
-    public class Product : IProductConstraints, IProductTitleConstraint, IProductDescriptionConstraint, IProductPriceConstraint, IProductRatingConstraint
+    public class Product : ModelBase, IProductConstraints, IProductTitleConstraint, IProductDescriptionConstraint, IProductPriceConstraint, IProductRatingConstraint
     {
-        public Guid Id { get; }
-        public string Title { get; } = string.Empty;
-        public string Description { get; } = string.Empty;
+        public string Title { get; }
+
+        public string Description { get; }
         public decimal Price { get; }
         public double Rating { get; }
-        public DateTime CreateAt { get; }
+        public DateTime CreatedAt { get; }
         public Guid CategoryId { get; }
         public Guid SellerId { get; }
 
-        public Product(Guid id, string title, string description, decimal price, double rating, DateTime createAt, Guid categoryId, Guid sellerId)
+        public Product(Guid id, string title, string description, decimal price, double rating, DateTime createAt, Guid categoryId, Guid sellerId) : base(id)
         {
-            Id = id;
             Title = title;
             Description = description;
             Price = price;
             Rating = rating;
-            CreateAt = createAt;
+            CreatedAt = createAt;
             CategoryId = categoryId;
             SellerId = sellerId;
         }

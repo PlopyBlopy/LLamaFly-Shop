@@ -32,3 +32,4 @@ C:\Users\Alexey\source\repos\Shopee-App\ProductService\DataBase\bin\Debug\net8.0
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\DataBase\obj\Debug\net8.0\DataBase.csproj.Up2Date
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\DataBase\obj\Debug\net8.0\DataBase.genruntimeconfig.cache
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\DataBase\obj\Debug\net8.0\ref\DataBase.dll
+C:\Users\Alexey\source\repos\Shopee-App\ProductService\DataBase\obj\Debug\net8.0\DataBase.sourcelink.json

@@ -1,10 +1,14 @@
-﻿using Core.Contracts.Dto;
-using Core.Entities;
+﻿using Core.Models;
+using Core.Contracts.Dtos;
 
 namespace Core.Interfaces
 {
-    public interface ICategoryRepository : IRepository<CategoryEntity, CategoryDto>
+    public interface ICategoryRepository //: IRepository<CategoryEntity, CategoryDto>
     {
-        public Task<CategoryEntity?> GetOnlyParentById(Guid parentCategoryId, CancellationToken ct);
+        Task Add(Category model, CancellationToken ct);
+
+        Task<IEnumerable<CategoryFlatDto>>? GetAll(CancellationToken ct);
+
+        Task Delete(Guid id, CancellationToken ct);
     }
 }

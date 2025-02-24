@@ -9,3 +9,10 @@ C:\Users\Alexey\source\repos\Shopee-App\ProductService\Infrastructure\obj\Releas
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\Infrastructure\obj\Release\net8.0\refint\Infrastructure.dll
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\Infrastructure\obj\Release\net8.0\Infrastructure.pdb
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\Infrastructure\obj\Release\net8.0\ref\Infrastructure.dll
+C:\Users\Alexey\source\repos\Shopee-App\ProductService\Infrastructure\bin\Release\net8.0\Infrastructure.runtimeconfig.json
+C:\Users\Alexey\source\repos\Shopee-App\ProductService\Infrastructure\bin\Release\net8.0\Core.dll
+C:\Users\Alexey\source\repos\Shopee-App\ProductService\Infrastructure\bin\Release\net8.0\Core.pdb
+C:\Users\Alexey\source\repos\Shopee-App\ProductService\Infrastructure\obj\Release\net8.0\Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Alexey\source\repos\Shopee-App\ProductService\Infrastructure\obj\Release\net8.0\Infrastructure.sourcelink.json
+C:\Users\Alexey\source\repos\Shopee-App\ProductService\Infrastructure\obj\Release\net8.0\Infrastr.15EFFBFE.Up2Date
+C:\Users\Alexey\source\repos\Shopee-App\ProductService\Infrastructure\obj\Release\net8.0\Infrastructure.genruntimeconfig.cache

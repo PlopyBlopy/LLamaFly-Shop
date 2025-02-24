@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
-using Core.Contracts.Dto;
-using Core.Entities;
 using Core.Interfaces;
 using Core.Models;
+using Core.Contracts.Dtos;
 
 namespace Application.Services
 {
-    public class ProductService : IProductService
+    public sealed class ProductService : IProductService
     {
         private readonly IProductRepository _repository;
         private readonly IMapper _mapper;
@@ -17,37 +16,38 @@ namespace Application.Services
             _mapper = mapper;
         }
 
-        public async Task<(bool, string)> Add(ProductCreateDto dto, CancellationToken ct)
+        public async Task Add(ProductCreateDto dto, CancellationToken ct)
         {
             Product model = _mapper.Map<Product>(dto);
-            ProductEntity entity = _mapper.Map<ProductEntity>(model);
-            return await _repository.Add(entity, ct);
-        }
-
-        public async Task<ProductDto?> GetById(Guid id, CancellationToken ct)
-        {
-            ProductDto dto = await _repository.GetById(id, ct);
-            return dto;
-        }
-
-        public async Task<IEnumerable<ProductDto>> GetAll(CancellationToken ct)
-        {
-            throw new NotImplementedException();
+            await _repository.Add(model, ct);
         }
 
         public async Task<IEnumerable<ProductCardDto>?> GetCards(ProductFiltersDto dto, CancellationToken ct)
         {
-            return await _repository.GetCards(dto, ct);
+            var result = await _repository.GetCards(dto, ct);
+            return result;
         }
 
-        public async Task Update(ProductDto dto, CancellationToken ct)
+        public async Task<ProductDto?> GetProductById(Guid id, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            var result = await _repository.GetProductById(id, ct);
+            return result;
+        }
+
+        public async Task<ProductSellerDto?> GetProductSellerById(Guid id, CancellationToken ct)
+        {
+            var result = await _repository.GetProductSellerById(id, ct);
+            return result;
+        }
+
+        public async Task Update(ProductUpdateDto dto, CancellationToken ct)
+        {
+            await _repository.Update(dto, ct);
         }
 
         public async Task Delete(Guid id, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            await _repository.Delete(id, ct);
         }
     }
 }

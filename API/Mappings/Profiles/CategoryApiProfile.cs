@@ -1,7 +1,7 @@
-﻿using API.Contracts.Requests;
-using API.Mappings.Converters;
+﻿using API.Mappings.Converters;
 using AutoMapper;
-using Core.Contracts.Dto;
+using Core.Contracts.Requests;
+using Core.Contracts.Dtos;
 
 namespace API.Mappings.Profiles
 {

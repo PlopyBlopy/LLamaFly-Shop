@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using Core.Contracts.Dto;
 using Core.Models;
+using Core.Contracts.Dtos;
 
 namespace Application.Mappings.Converters
 {
@@ -8,7 +8,7 @@ namespace Application.Mappings.Converters
     {
         public Category Convert(CategoryCreateDto source, Category destination, ResolutionContext context)
         {
-            return new Category(Guid.NewGuid(), source.Title, source.ParentCategoryId, new List<Guid>());
+            return new Category(Guid.NewGuid(), source.Title, source.ParentCategoryId, new List<Category>()); //new List<Guid>()
         }
     }
 }
