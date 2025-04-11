@@ -5,6 +5,10 @@
 
 https://github.com/user-attachments/assets/4278dddc-4afa-4a41-87c1-42fb2675ebe2
 
+
+https://github.com/user-attachments/assets/1e2f8c43-14c2-42b6-a2b5-aa7ee348788b
+
+
 ## Реализованно
 - Получение товаров WebUI <- API <- База данных.
 - Поиск товаров.
