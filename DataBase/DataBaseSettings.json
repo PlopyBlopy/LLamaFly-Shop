@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "ImageServiceConnectionString": "Server=localhost;Port=5433;Database=ImageServiceDB;User Id=admin;Password=12345;"
+  }
+}

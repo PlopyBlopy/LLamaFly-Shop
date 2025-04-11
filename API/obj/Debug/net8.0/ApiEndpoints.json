@@ -1,0 +1,108 @@
+[
+  {
+    "ContainingType": "API.Controllers.ProductsImagesController",
+    "Method": "Update",
+    "RelativePath": "api/images/products",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ProductId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Images",
+        "Type": "System.Collections.Generic.List\u00601[[API.Contracts.Requests.ImageFormRequest, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ProductsImagesController",
+    "Method": "DeleteProductImages",
+    "RelativePath": "api/images/products",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ProductsImagesController",
+    "Method": "GetProductImages",
+    "RelativePath": "api/images/products/{productId}/images",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ProductsImagesController",
+    "Method": "GetProductPreviewImage",
+    "RelativePath": "api/images/products/{productId}/preview",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ProductsImagesController",
+    "Method": "GetProductsPreviewImages",
+    "RelativePath": "api/images/products/preview/range",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Core.Contracts.Requests.ProductIdsRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ProductsImagesController",
+    "Method": "AddProductImages",
+    "RelativePath": "api/images/products/upload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ProductId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Images",
+        "Type": "System.Collections.Generic.List\u00601[[API.Contracts.Requests.ImageFormRequest, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
