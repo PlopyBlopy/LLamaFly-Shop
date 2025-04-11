@@ -1,7 +1,7 @@
-﻿using AutoMapper;
-using Application.Mappings.Converters;
+﻿using Application.Mappings.Converters;
+using AutoMapper;
+using Core.Contracts.Requests;
 using Core.Models;
-using Core.Contracts.Dtos;
 
 namespace Application.Mappings.Profiles
 {
@@ -9,7 +9,8 @@ namespace Application.Mappings.Profiles
     {
         public CategoryAppicationProfile()
         {
-            CreateMap<CategoryCreateDto, Category>().ConvertUsing<CategoryCreateDtoToModelConverter>();
+            CreateMap<CategoryCreateRequest, Category>().ConvertUsing<CategoryCreateRequestToModelConverter>();
+            CreateMap<CategoryUpdateRequest, CategoryUpdateDto>().ConvertUsing<CategoryUpdateRequestToUpdateDtoConverter>();
         }
     }
 }

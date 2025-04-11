@@ -15,14 +15,6 @@ namespace API.Properties.Configs
                 .Enrich.WithProperty("Environment", environment)
                 .ReadFrom.Configuration(configuration)
                 .CreateLogger();
-
-           
         }
     }
 }
-
-// Log.Logger = new LoggerConfiguration()
-//.Enrich.FromLogContext() // Добавляет контекст в логи
-//.WriteTo.Elasticsearch(ElasticsearchConfig.ConfigureElasticSink(configuration, environment)) // Настройка Elasticsearch
-//.Enrich.WithProperty("Environment", environment) // Добавляет свойство "Environment" в логи
-//.CreateLogger();

@@ -1,7 +1,8 @@
-﻿using AutoMapper;
-using Application.Mappings.Converters;
-using Core.Models;
+﻿using API.Mappings.Converters;
+using AutoMapper;
 using Core.Contracts.Dtos;
+using Core.Contracts.Requests;
+using Core.Models;
 
 namespace Application.Mappings.Profiles
 {
@@ -9,7 +10,9 @@ namespace Application.Mappings.Profiles
     {
         public ProductApplicationProfile()
         {
-            CreateMap<ProductCreateDto, Product>().ConvertUsing<ProductCreateDtoToModelConverter>();
+            CreateMap<ProductCreateRequest, Product>().ConvertUsing<ProductCreateRequestToModelConverter>();
+            CreateMap<ProductCreateWithRatingRequest, Product>().ConvertUsing<ProductCreateWithRatingRequestToModelConverter>();
+            CreateMap<ProductUpdateRequest, ProductUpdateDto>().ConvertUsing<ProductUpdateRequestToUpdateDtoConverter>();
         }
     }
 }

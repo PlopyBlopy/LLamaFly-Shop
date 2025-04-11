@@ -14,12 +14,7 @@ namespace API.Properties.Configs
                 IndexFormat = $"{Assembly.GetExecutingAssembly().GetName().Name.ToLower().Replace(".", "-")}-{environment.ToLower()}-{DateTime.UtcNow:yyyy-MM}",
                 NumberOfReplicas = 1,
                 NumberOfShards = 2 //2
-
             };
         }
     }
 }
-
-
-//AutoRegisterTemplate = true, // Автоматически регистрирует шаблон индекса в Elasticsearch
-//IndexFormat = $"{Assembly.GetExecutingAssembly().GetName().Name.ToLower().Replace(".", "-")}-{environment.ToLower()}-{DateTime.UtcNow:yyyy-MM}", // Формат индекса

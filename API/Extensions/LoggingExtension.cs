@@ -1,6 +1,4 @@
-﻿using API.Properties;
-using API.Properties.Configs;
-using Microsoft.Extensions.Hosting;
+﻿using API.Properties.Configs;
 using Serilog;
 
 namespace API.Extensions
@@ -9,10 +7,11 @@ namespace API.Extensions
     {
         public static IHostBuilder UseSerilogWithConfiguration(this IHostBuilder hostBuilder)
         {
-            // Инициализация логгера
-            LoggingInitializer.Initialize();
+            var configuration = LoggingConfigurationLoader.LoadConfiguration();
+            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
-            // Использование Serilog в Host
+            SerilogConfig.ConfigureLogging(configuration, environment);
+
             return hostBuilder.UseSerilog();
         }
     }

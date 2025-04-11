@@ -7,7 +7,12 @@ namespace API.Extensions
     {
         public static IServiceCollection AddDbConnectionsServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddSingleton<IDbConnectionFactory>(_ => new NpgsqlDbConnectionFactory(configuration["DbConnectionString"]!));
+            var dbConnectionString = configuration.GetConnectionString("DbConnectionString");
+
+            if (string.IsNullOrEmpty(dbConnectionString))
+                throw new ArgumentException("DataBase connection string is missing");
+
+            services.AddSingleton<IDbConnectionFactory>(_ => new NpgsqlDbConnectionFactory(dbConnectionString));
             return services;
         }
     }

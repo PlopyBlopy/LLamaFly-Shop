@@ -2,48 +2,35 @@ using API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddExceptionsHandlerExtension();
+builder.Services.AddProblemDetails();
+
+builder.WebHost.AddKestrelWebHost();
+builder.Services.AddCorsService(builder.Configuration);
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(policy =>
-    {
-        policy.WithOrigins("http://localhost:5173")
-        //policy.WithOrigins("http://localhost:4173")
-            .AllowAnyHeader()
-            .AllowAnyMethod();
-    });
-});
-
-builder.WebHost.ConfigureKestrel(options =>
-{
-    options.ConfigureHttpsDefaults(httpsOptions =>
-    {
-        httpsOptions.SslProtocols = System.Security.Authentication.SslProtocols.Tls12;
-    });
-});
-
-//TODO: ƒобавить кастомную обработку exeptions (отдельный класс дл€ конкретной ошибки наследуемый от IExceptionHandler)
-//builder.Services.AddExceptionsHandlerExtension();
-//builder.Services.AddProblemDetails();
-
-//TODO: »нтеграци€ логировани€ (Middleware и если нужно другие варианты)
-//builder.Host.UseSerilogWithConfiguration();
+builder.Services.AddConfigServices(builder.Configuration);
+builder.Services.AddHttpClientServices(builder.Configuration);
 
 builder.Services.AddAuthenticationSettingsServices(builder.Configuration);
 builder.Services.AddAuthorizationSettingsServices();
 
+builder.Services.AddAppServices();
+builder.Services.AddAppRepositoriesServices();
+
 builder.Services.AddDbConnectionsServices(builder.Configuration);
+builder.Services.AddCacheServices(builder.Configuration);
 
 builder.Services.AddFluentValidationServices();
 builder.Services.AddMappingServices();
 builder.Services.AddAppUtilitiesServices();
-builder.Services.AddAppRepositoriesServices();
-builder.Services.AddAppServices();
 
 var app = builder.Build();
+
+app.UseExceptionHandler();
 
 if (app.Environment.IsDevelopment())
 {
@@ -51,12 +38,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors();
+app.UseCors("AllowFrontend");
 app.UseHttpsRedirection();
-//app.UseExceptionHandler();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-//app.UseMiddleware<CorrelationIdMiddleware>();
 
 app.Run();

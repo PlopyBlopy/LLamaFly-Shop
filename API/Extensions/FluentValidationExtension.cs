@@ -1,7 +1,6 @@
 ﻿using Application.Validation.Models;
 using Core.Contracts.Requests;
 using FluentValidation;
-using FluentValidation.AspNetCore;
 
 namespace API.Extensions
 {
@@ -9,10 +8,14 @@ namespace API.Extensions
     {
         public static IServiceCollection AddFluentValidationServices(this IServiceCollection services)
         {
-            services.AddFluentValidationAutoValidation(); // Вызов через IServiceCollection
+            //services.AddFluentValidationAutoValidation();
 
             services.AddScoped<IValidator<ProductCreateRequest>, ProductCreateRequestValidator>();
+            services.AddScoped<IValidator<ProductCreateWithRatingRequest>, ProductCreateWithRatingRequestValidator>();
+            services.AddScoped<IValidator<ProductUpdateRequest>, ProductUpdateRequestValidator>();
+
             services.AddScoped<IValidator<CategoryCreateRequest>, CategoryCreateRequestValidator>();
+            services.AddScoped<IValidator<CategoryUpdateRequest>, CategoryUpdateRequestValidator>();
 
             return services;
         }

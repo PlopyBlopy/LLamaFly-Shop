@@ -1,13 +1,23 @@
 ﻿using Core.Contracts.Dtos;
+using Core.Contracts.Requests;
+using FluentResults;
 
 namespace Core.Interfaces
 {
-    public interface ICategoryService // : IService<CategoryDto, CategoryCreateDto>
+    public interface ICategoryService : IService
     {
-        Task Add(CategoryCreateDto dto, CancellationToken ct);
+        Task<Result> AddCategory(CategoryCreateRequest request, CancellationToken ct);
 
-        Task<IEnumerable<CategoryDto>> GetAll(CancellationToken ct);
+        Task<Result> AddCategoryRange(IEnumerable<CategoryCreateRequest> request, CancellationToken ct);
 
-        Task Delete(Guid id, CancellationToken ct);
+        Task<Result<CategoryDto>> GetCategory(Guid id, CancellationToken ct);
+
+        Task<Result<IEnumerable<CategoryHierarchyDto>>> GetCategories(CancellationToken ct);
+
+        Task<Result> UpdateCategory(CategoryUpdateRequest request, CancellationToken ct);
+
+        Task<Result> DeleteCategory(Guid id, CancellationToken ct);
+
+        Task<Result<bool>> IsCategoryExists(Guid id, CancellationToken ct);
     }
 }

@@ -1,39 +1,93 @@
-﻿using Core.Interfaces;
+﻿using Core.Contracts.Dtos;
+using Core.Extensions.Errors;
+using Core.Interfaces;
 using Core.Models;
 using Dapper;
+using FluentResults;
 using Infrastructure.DataBase.Interfaces;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Logging;
 using System.Text;
-using Core.Contracts.Dtos;
 
 namespace Infrastructure.DataBase.Repositories
 {
     public class ProductRepository : IProductRepository
     {
         private readonly IDbConnectionFactory _connection;
+        private readonly IDistributedCache _distributedCache;
+        private readonly ILogger<ProductRepository> _logger;
 
-        public ProductRepository(IDbConnectionFactory connectionFactory)
+        public ProductRepository(IDbConnectionFactory connectionFactory, IDistributedCache distributedCache, ILogger<ProductRepository> logger)
         {
             _connection = connectionFactory;
+            _distributedCache = distributedCache;
+            _logger = logger;
         }
 
-        public async Task Add(Product model, CancellationToken ct)
+        public async Task<Result<Guid>> AddProduct(Product model, CancellationToken ct)
         {
+            if (model == null)
+                return Result.Fail(new NotNullError("Product", "Product"));
+
             using var connection = await _connection.CreateConnectionAsync(ct);
 
             var command = new CommandDefinition(
                 commandText:
                     """
-                    INSERT INTO products (id, title, description, price, rating, created_at, seller_id, category_id)
-                    VALUES (@Id, @Title, @Description, @Price, @Rating, @CreatedAt, @SellerId, @CategoryId)
+                    INSERT INTO products (id, title, description, price, rating, category_id, seller_id, updated_at, created_at)
+                    VALUES (@Id, @Title, @Description, @Price, @Rating, @CategoryId, @SellerId, @UpdatedAt, @CreatedAt)
+                    RETURNING id
                     """,
                 parameters: model,
                 cancellationToken: ct
                 );
 
-            await connection.ExecuteAsync(command);
+            var productId = await connection.ExecuteScalarAsync<Guid?>(command);
+
+            return productId is null ? Result.Fail(new NotFoundError("CreatedProduct", "productId")) : Result.Ok(productId.Value);
         }
 
-        public async Task<IEnumerable<ProductCardDto>?> GetCards(ProductFiltersDto dto, CancellationToken ct)
+        public async Task<Result> AddProductRange(List<Product> models, CancellationToken ct)
+        {
+            using var connection = await _connection.CreateConnectionAsync(ct);
+
+            var queryBuilder = new StringBuilder("INSERT INTO products (id, title, description, price, rating, category_id, seller_id, updated_at, created_at) VALUES ");
+
+            var parameters = new DynamicParameters();
+
+            for (int i = 0; i < models.Count; i++)
+            {
+                var model = models[i];
+
+                queryBuilder.Append($"(@Id{i}, @Title{i}, @Description{i}, @Price{i}, @Rating{i}, @CategoryId{i}, @SellerId{i}, @UpdatedAt{i}, @CreatedAt{i})");
+
+                parameters.Add($"Id{i}", model.Id);
+                parameters.Add($"Title{i}", model.Title);
+                parameters.Add($"Description{i}", model.Description);
+                parameters.Add($"Price{i}", model.Price);
+                parameters.Add($"Rating{i}", model.Rating);
+                parameters.Add($"CategoryId{i}", model.CategoryId);
+                parameters.Add($"SellerId{i}", model.SellerId);
+                parameters.Add($"UpdatedAt{i}", model.UpdatedAt);
+                parameters.Add($"CreatedAt{i}", model.CreatedAt);
+
+                if (i != models.Count - 1)
+                {
+                    queryBuilder.Append(',');
+                }
+            }
+
+            var command = new CommandDefinition(
+                commandText: queryBuilder.ToString(),
+                parameters: parameters,
+                cancellationToken: ct);
+
+            await connection.ExecuteAsync(command);
+
+            return Result.Ok();
+        }
+
+        public async Task<Result<IEnumerable<ProductCardDto>>> GetProductsCards(ProductFiltersDto dto, CancellationToken ct)
         {
             using var connection = await _connection.CreateConnectionAsync(ct);
             var query = new StringBuilder("SELECT id, title, price, rating FROM products");
@@ -46,17 +100,17 @@ namespace Infrastructure.DataBase.Repositories
                 parameters.Add("Search", $"%{dto.Search}%");
             }
 
-            if (dto.CategoryId == null)
+            if (dto.CategoryId != null)
             {
-                //UNDONE: Исправить (возможно добавить в Json и получать через IOption)
-                Guid defaultCategoryId = Guid.Parse("c7b5ef2a-2436-400f-a5d5-d0c62d641eba");
-
-                conditions.Add("category_id = @DefaultCategoryId");
-                parameters.Add("DefaultCategoryId", defaultCategoryId);
-            }
-            else
-            {
-                conditions.Add("category_id = @CategoryId");
+                var cte = @"
+                    WITH RECURSIVE recursive_categories AS (
+                        SELECT id FROM categories WHERE id = @CategoryId
+                        UNION ALL
+                        SELECT c.id FROM categories c
+                        INNER JOIN recursive_categories rc ON c.parent_category_id = rc.id
+                    ) ";
+                query.Insert(0, cte);
+                conditions.Add("category_id IN (SELECT id FROM recursive_categories)");
                 parameters.Add("CategoryId", dto.CategoryId);
             }
 
@@ -92,10 +146,29 @@ namespace Infrastructure.DataBase.Repositories
 
             var result = await connection.QueryAsync<ProductCardDto>(command);
 
-            return result;
+            return result is null ? Result.Fail<IEnumerable<ProductCardDto>>(new NotFoundError("Products", "Products")) : Result.Ok(result);
         }
 
-        public async Task<ProductDto?> GetProductById(Guid id, CancellationToken ct)
+        public async Task<Result<IEnumerable<ProductCardDto>>> GetSellerProductsCards(Guid id, CancellationToken ct)
+        {
+            using var connection = await _connection.CreateConnectionAsync(ct);
+
+            var command = new CommandDefinition(
+                commandText:
+                    """
+                    SELECT id, title, price, rating
+                    FROM products
+                    WHERE seller_id = @id
+                    """,
+                parameters: new { id },
+                cancellationToken: ct);
+
+            var result = await connection.QueryAsync<ProductCardDto>(command);
+
+            return result.Any() ? Result.Ok(result) : Result.Fail<IEnumerable<ProductCardDto>>(new NotFoundError("Seller.Products", "Seller.Products", id));
+        }
+
+        public async Task<Result<ProductDetailDto>> GetProduct(Guid id, CancellationToken ct)
         {
             using var connection = await _connection.CreateConnectionAsync(ct);
 
@@ -109,19 +182,19 @@ namespace Infrastructure.DataBase.Repositories
                 parameters: new { id },
                 cancellationToken: ct);
 
-            var result = await connection.QueryFirstOrDefaultAsync<ProductDto?>(command);
+            var result = await connection.QueryFirstOrDefaultAsync<ProductDetailDto?>(command);
 
-            return result;
+            return Result.Ok(result);
         }
 
-        public async Task<ProductSellerDto?> GetProductSellerById(Guid id, CancellationToken ct)
+        public async Task<Result<ProductSellerDto>> GetSellerProduct(Guid id, CancellationToken ct)
         {
             using var connection = await _connection.CreateConnectionAsync(ct);
 
             var command = new CommandDefinition(
                 commandText:
                     """
-                    SELECT id, title, description, price, created_at AS CreatedAt, category_id AS CategoryId
+                    SELECT id, title, description, price, category_id AS CategoryId, updated_at AS UpdatedAt, created_at AS CreatedAt
                     FROM products
                     WHERE id = @id
                     """,
@@ -130,10 +203,10 @@ namespace Infrastructure.DataBase.Repositories
 
             var result = await connection.QueryFirstOrDefaultAsync<ProductSellerDto?>(command);
 
-            return result;
+            return result is null ? Result.Fail<ProductSellerDto>(new NotFoundError("Seller.Product", "Product", id)) : Result.Ok(result);
         }
 
-        public async Task Update(ProductUpdateDto dto, CancellationToken ct)
+        public async Task<Result> UpdateProduct(ProductUpdateDto dto, CancellationToken ct)
         {
             using var connection = await _connection.CreateConnectionAsync(ct);
             var query = new StringBuilder("UPDATE products");
@@ -166,13 +239,15 @@ namespace Infrastructure.DataBase.Repositories
 
             if (conditions.Count > 0)
             {
+                conditions.Add("updated_at = @UpdatedAt");
+                parameters.Add("UpdatedAt", dto.UpdatedAt);
+
                 query.Append(" SET ");
                 query.Append(string.Join(", ", conditions));
             }
             else
             {
-                // TODO: Обратка в кастомном Exceptions от IExceptionHandler
-                throw new NullReferenceException("The update data fields are empty.");
+                return Result.Fail(new NotNullError("Product.Update", "Product", dto.Id));
             }
 
             query.Append(" WHERE ");
@@ -185,9 +260,11 @@ namespace Infrastructure.DataBase.Repositories
                 cancellationToken: ct);
 
             await connection.QueryAsync(command);
+
+            return Result.Ok();
         }
 
-        public async Task Delete(Guid id, CancellationToken ct)
+        public async Task<Result> DeleteProduct(Guid id, CancellationToken ct)
         {
             using var connection = await _connection.CreateConnectionAsync(ct);
 
@@ -201,6 +278,8 @@ namespace Infrastructure.DataBase.Repositories
                 cancellationToken: ct);
 
             await connection.ExecuteAsync(command);
+
+            return Result.Ok();
         }
     }
 }

@@ -1,18 +1,19 @@
-﻿using Core.Interfaces.Constraints;
+﻿using Core.Extensions.Errors;
+using Core.Interfaces.Constraints;
 using FluentValidation;
 
 namespace Application.Validation.Properties
 {
-    public class ProductRatingValidator : AbstractValidator<double>, IProductRatingConstraint
+    public class ProductRatingValidator : AbstractValidator<double>, IProductConstraints
     {
-        private readonly double minValue = IProductRatingConstraint.MIN_RATING;
-        private readonly double maxValue = IProductRatingConstraint.MAX_RATING;
+        private readonly double minValue = IProductConstraints.MIN_RATING;
+        private readonly double maxValue = IProductConstraints.MAX_RATING;
 
         public ProductRatingValidator()
         {
             RuleFor(rating => rating)
-                .NotEmpty().WithMessage("Rating is required")
-                .InclusiveBetween(minValue, maxValue).WithMessage($"The rating must be between {minValue} and {maxValue}.");
+                .NotEmpty().WithMessage(BaseErrors.NotEmpty)
+                .InclusiveBetween(minValue, maxValue).WithMessage(BaseErrors.ValueBetween(minValue, maxValue));
         }
     }
 }

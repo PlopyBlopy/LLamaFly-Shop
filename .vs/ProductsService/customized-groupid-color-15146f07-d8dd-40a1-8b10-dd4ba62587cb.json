@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ColorMap": {
+    "1994472952": {
+      "GroupId": 1994472952,
+      "ColorIndex": 6
+    },
+    "2104053250": {
+      "GroupId": 2104053250,
+      "ColorIndex": 3
+    },
+    "-1665736055": {
+      "GroupId": -1665736055,
+      "ColorIndex": 4
+    },
+    "-1620847719": {
+      "GroupId": -1620847719,
+      "ColorIndex": 1
+    }
+  }
+}

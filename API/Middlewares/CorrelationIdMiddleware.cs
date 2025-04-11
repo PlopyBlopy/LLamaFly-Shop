@@ -13,7 +13,7 @@ namespace API.Middlewares
 
         public async Task Invoke(HttpContext context)
         {
-            var correlationId = Guid.NewGuid().ToString();
+            var correlationId = context.TraceIdentifier;
             context.Items["CorrelationId"] = correlationId;
 
             using (LogContext.PushProperty("CorrelationId", correlationId))

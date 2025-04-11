@@ -1,20 +1,25 @@
-﻿using Core.Models;
-using Core.Contracts.Dtos;
+﻿using Core.Contracts.Dtos;
+using Core.Models;
+using FluentResults;
 
 namespace Core.Interfaces
 {
-    public interface IProductRepository // : IRepository<ProductEntity, ProductDto>
+    public interface IProductRepository
     {
-        Task Add(Product model, CancellationToken ct);
+        Task<Result<Guid>> AddProduct(Product model, CancellationToken ct);
 
-        Task<IEnumerable<ProductCardDto>?> GetCards(ProductFiltersDto dto, CancellationToken ct);
+        Task<Result> AddProductRange(List<Product> models, CancellationToken ct);
 
-        Task<ProductDto?> GetProductById(Guid id, CancellationToken ct);
+        Task<Result<IEnumerable<ProductCardDto>>> GetProductsCards(ProductFiltersDto dto, CancellationToken ct);
 
-        Task<ProductSellerDto?> GetProductSellerById(Guid id, CancellationToken ct);
+        Task<Result<IEnumerable<ProductCardDto>>> GetSellerProductsCards(Guid id, CancellationToken ct);
 
-        Task Update(ProductUpdateDto dto, CancellationToken ct);
+        Task<Result<ProductDetailDto>> GetProduct(Guid id, CancellationToken ct);
 
-        Task Delete(Guid id, CancellationToken ct);
+        Task<Result<ProductSellerDto>> GetSellerProduct(Guid id, CancellationToken ct);
+
+        Task<Result> UpdateProduct(ProductUpdateDto dto, CancellationToken ct);
+
+        Task<Result> DeleteProduct(Guid id, CancellationToken ct);
     }
 }

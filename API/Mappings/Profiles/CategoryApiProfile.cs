@@ -1,7 +1,4 @@
-﻿using API.Mappings.Converters;
-using AutoMapper;
-using Core.Contracts.Requests;
-using Core.Contracts.Dtos;
+﻿using AutoMapper;
 
 namespace API.Mappings.Profiles
 {
@@ -9,7 +6,6 @@ namespace API.Mappings.Profiles
     {
         public CategoryApiProfile()
         {
-            CreateMap<CategoryCreateRequest, CategoryCreateDto>().ConvertUsing<CategoryCreateRequestToCreateDtoConverter>();
         }
     }
 }

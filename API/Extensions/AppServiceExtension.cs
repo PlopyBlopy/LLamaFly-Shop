@@ -1,5 +1,6 @@
 ﻿using Application.Services;
 using Core.Interfaces;
+using Infrastructure.API.ProfileService.Endpoints;
 
 namespace API.Extensions
 {
@@ -9,6 +10,7 @@ namespace API.Extensions
         {
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProfileService, ProfileApiService>();
 
             return services;
         }

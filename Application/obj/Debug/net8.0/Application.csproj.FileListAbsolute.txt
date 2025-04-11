@@ -19,9 +19,7 @@ C:\Users\Alexey\source\repos\Shopee-App\ProductService\Application\bin\Debug\net
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\Application\bin\Debug\net8.0\Application.dll
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\Application\bin\Debug\net8.0\Application.pdb
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\Application\bin\Debug\net8.0\Core.dll
-C:\Users\Alexey\source\repos\Shopee-App\ProductService\Application\bin\Debug\net8.0\DataBase.dll
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\Application\bin\Debug\net8.0\Core.pdb
-C:\Users\Alexey\source\repos\Shopee-App\ProductService\Application\bin\Debug\net8.0\DataBase.pdb
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
@@ -33,3 +31,5 @@ C:\Users\Alexey\source\repos\Shopee-App\ProductService\Application\obj\Debug\net
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\Application\obj\Debug\net8.0\refint\Application.dll
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\Application\obj\Debug\net8.0\Application.pdb
 C:\Users\Alexey\source\repos\Shopee-App\ProductService\Application\obj\Debug\net8.0\ref\Application.dll
+C:\Users\Alexey\source\repos\Shopee-App\ProductService\Application\bin\Debug\net8.0\Infrastructure.dll
+C:\Users\Alexey\source\repos\Shopee-App\ProductService\Application\bin\Debug\net8.0\Infrastructure.pdb

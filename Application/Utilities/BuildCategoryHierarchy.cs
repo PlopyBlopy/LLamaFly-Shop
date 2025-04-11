@@ -4,9 +4,9 @@ namespace Application.Utilities
 {
     public class BuildCategoryHierarchy
     {
-        public List<CategoryDto> BuildHierarchy(IEnumerable<CategoryFlatDto> flatList)
+        public List<CategoryHierarchyDto> BuildHierarchy(IEnumerable<CategoryFlatDto> flatList)
         {
-            var allCategories = flatList.Select(c => new CategoryDto(c.Id, c.Title, c.ParentCategoryId, c.Level)).ToList();
+            var allCategories = flatList.Select(c => new CategoryHierarchyDto(c.Id, c.Title, c.ParentCategoryId, c.Level)).ToList();
 
             var lookup = allCategories.ToLookup(c => c.ParentCategoryId);
 

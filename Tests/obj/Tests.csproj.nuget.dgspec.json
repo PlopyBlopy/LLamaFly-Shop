@@ -64,9 +64,21 @@
               "target": "Package",
               "version": "[14.0.0, )"
             },
+            "Elastic.Clients.Elasticsearch": {
+              "target": "Package",
+              "version": "[8.16.2, )"
+            },
+            "FluentResults": {
+              "target": "Package",
+              "version": "[3.16.0, )"
+            },
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[11.3.0, )"
+            },
+            "MassTransit": {
+              "target": "Package",
+              "version": "[8.4.0-develop.2236, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -76,13 +88,57 @@
               "target": "Package",
               "version": "[9.0.0, )"
             },
+            "Microsoft.Extensions.Caching.StackExchangeRedis": {
+              "target": "Package",
+              "version": "[8.0.14, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[9.0.2, )"
             },
+            "OpenTelemetry.Exporter.OpenTelemetryProtocol": {
+              "target": "Package",
+              "version": "[1.11.2, )"
+            },
+            "OpenTelemetry.Exporter.Prometheus.AspNetCore": {
+              "target": "Package",
+              "version": "[1.11.2-beta.1, )"
+            },
+            "OpenTelemetry.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[1.11.2, )"
+            },
+            "OpenTelemetry.Instrumentation.AspNetCore": {
+              "target": "Package",
+              "version": "[1.11.1, )"
+            },
+            "OpenTelemetry.Instrumentation.Http": {
+              "target": "Package",
+              "version": "[1.11.1, )"
+            },
+            "OpenTelemetry.Instrumentation.Runtime": {
+              "target": "Package",
+              "version": "[1.11.1, )"
+            },
+            "OpenTelemetry.Instrumentation.SqlClient": {
+              "target": "Package",
+              "version": "[1.11.0-beta.2, )"
+            },
+            "OpenTelemetry.Instrumentation.StackExchangeRedis": {
+              "target": "Package",
+              "version": "[1.11.0-beta.2, )"
+            },
+            "Scrutor": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.29.3, )"
+            },
             "Serilog.AspNetCore": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[8.0.3, )"
             },
             "Serilog.Enrichers.CorrelationId": {
               "target": "Package",
@@ -107,6 +163,14 @@
             "Serilog.Sinks.Elasticsearch": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "Serilog.Sinks.Grafana.Loki": {
+              "target": "Package",
+              "version": "[8.3.0, )"
+            },
+            "Serilog.Sinks.Seq": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -193,6 +257,10 @@
               "target": "Package",
               "version": "[14.0.0, )"
             },
+            "FluentResults": {
+              "target": "Package",
+              "version": "[3.16.0, )"
+            },
             "FluentValidation": {
               "target": "Package",
               "version": "[11.11.0, )"
@@ -263,6 +331,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentResults": {
+              "target": "Package",
+              "version": "[3.16.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -341,11 +415,23 @@
               "target": "Package",
               "version": "[2.1.66, )"
             },
+            "Elastic.Clients.Elasticsearch": {
+              "target": "Package",
+              "version": "[8.16.2, )"
+            },
+            "FluentResults": {
+              "target": "Package",
+              "version": "[3.16.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.13, )"
+            },
+            "Microsoft.Extensions.Caching.StackExchangeRedis": {
+              "target": "Package",
+              "version": "[8.0.14, )"
             },
             "Microsoft.Extensions.Configuration.FileExtensions": {
               "target": "Package",
@@ -354,6 +440,14 @@
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[8.0.1, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             },
             "Npgsql": {
               "target": "Package",
@@ -443,6 +537,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BenchmarkDotNet": {
+              "target": "Package",
+              "version": "[0.14.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.8.0, )"

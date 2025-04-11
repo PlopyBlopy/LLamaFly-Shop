@@ -1,108 +1,131 @@
-﻿using AutoMapper;
+﻿using API.Interfaces;
+using AutoMapper;
+using Core.Contracts.Dtos;
+using Core.Contracts.Requests;
 using Core.Interfaces;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Core.Contracts.Requests;
-using Core.Contracts.Responses;
-using Core.Contracts.Dtos;
 
 namespace API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/products")]
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _service;
         private readonly IMapper _mapper;
+        private readonly IErrorFactoryHandler _errorFactoryHandler;
         private readonly IValidator<ProductCreateRequest> _validator;
         private readonly ILogger<ProductsController> _logger;
 
-        public ProductsController(IProductService service, IMapper mapper, IValidator<ProductCreateRequest> validator, ILogger<ProductsController> logger)
+        public ProductsController(IProductService service, IMapper mapper, IErrorFactoryHandler errorFactoryHandler, IValidator<ProductCreateRequest> validator, ILogger<ProductsController> logger)
         {
             _service = service;
             _mapper = mapper;
+            _errorFactoryHandler = errorFactoryHandler;
             _validator = validator;
             _logger = logger;
         }
 
-        [Authorize(Policy = "Seller")]
-
-        //[Authorize(Roles = "Seller")]
-        [HttpPost("add")]
-        public async Task<ActionResult> Add([FromBody] ProductCreateRequest request, CancellationToken ct)
+        [Authorize(Policy = "seller")]
+        [HttpPost]
+        public async Task<ActionResult<Guid>> AddProduct([FromBody] ProductCreateRequest request, CancellationToken ct)
         {
-            //return new BadRequestResult();
-            //throw new ValidationException("Product controller error");
+            //TODO: При добавлении продукта, обновить cache (удалить)
+            var result = await _service.AddProduct(request, ct);
 
-            var validationResult = _validator.Validate(request);
-            if (!validationResult.IsValid)
-            {
-                return BadRequest(validationResult.Errors);
-            }
-
-            ProductCreateDto dto = _mapper.Map<ProductCreateDto>(request);
-
-            await _service.Add(dto, ct);
-
-            return Ok();
+            return result.IsSuccess
+                ? Ok(result.Value)
+                : _errorFactoryHandler.GetHandler(result.Errors.First()).Handle(result.Errors.First());
         }
 
-        [HttpGet("cards")]
-        public async Task<ActionResult<IEnumerable<ProductCardDto>?>> GetCards([FromQuery] ProductFiltersRequest request, CancellationToken ct)
+        [Authorize(Policy = "admin")]
+        [HttpPost("range")]
+        public async Task<ActionResult> AddProductRange(IEnumerable<ProductCreateRequest> requests, CancellationToken ct)
+        {
+            var result = await _service.AddProductRange(requests, ct);
+
+            return result.IsSuccess
+                ? Created()
+                : _errorFactoryHandler.GetHandler(result.Errors.First()).Handle(result.Errors.First());
+        }
+
+        [Authorize(Policy = "admin")]
+        [HttpPost("range/withrating")]
+        public async Task<ActionResult> AddProductRange(IEnumerable<ProductCreateWithRatingRequest> requests, CancellationToken ct)
+        {
+            var result = await _service.AddProductRange(requests, ct);
+
+            return result.IsSuccess
+                ? Created()
+                : _errorFactoryHandler.GetHandler(result.Errors.First()).Handle(result.Errors.First());
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ProductCardDto>>> GetProductsCards([FromQuery] ProductFiltersRequest request, CancellationToken ct)
         {
             ProductFiltersDto dto = _mapper.Map<ProductFiltersDto>(request);
 
-            var response = await _service.GetCards(dto, ct);
+            var result = await _service.GetProductsCards(dto, ct);
 
-            return Ok(response);
+            return result.IsSuccess
+                ? Ok(result.Value)
+                : _errorFactoryHandler.GetHandler(result.Errors.First()).Handle(result.Errors.First());
         }
 
-        [HttpGet("product")]
-        public async Task<ActionResult<ProductResponse>?> GetProductById([FromQuery] Guid id, CancellationToken ct)
+        [Authorize(Policy = "seller")]
+        [HttpGet("profile/seller/{id}")]
+        public async Task<ActionResult<IEnumerable<ProductCardDto>>> GetSellerProductsCards([FromRoute] Guid id, CancellationToken ct)
         {
-            var result = await _service.GetProductById(id, ct);
+            var result = await _service.GetSellerProductsCards(id, ct);
 
-            var response = _mapper.Map<ProductResponse>(result);
-
-            return Ok(response);
+            return result.IsSuccess
+                ? Ok(result.Value)
+                : _errorFactoryHandler.GetHandler(result.Errors.First()).Handle(result.Errors.First());
         }
 
-        [Authorize(Policy = "Seller")]
-
-        //[Authorize(Roles = "Seller")]
-        [HttpGet("seller-product")]
-        public async Task<ActionResult<ProductSellerResponse>?> GetSellerProductById([FromQuery] Guid id, CancellationToken ct)
+        [HttpGet("detail/{productId}")]
+        public async Task<ActionResult<ProductDetailDto>> GetProduct([FromRoute] Guid productId, CancellationToken ct)
         {
-            var result = await _service.GetProductSellerById(id, ct);
+            var result = await _service.GetProduct(productId, ct);
 
-            var response = _mapper.Map<ProductSellerResponse>(result);
-
-            return Ok(response);
+            return result.IsSuccess
+                ? Ok(result.Value)
+                : _errorFactoryHandler.GetHandler(result.Errors.First()).Handle(result.Errors.First());
         }
 
-        [Authorize(Policy = "Seller")]
-
-        //[Authorize(Roles = "Seller")]
-        [HttpPatch("update")]
-        public async Task<ActionResult> Update([FromBody] ProductUpdateRequest request, CancellationToken ct)
+        [Authorize(Policy = "seller")]
+        [HttpGet("seller/{productId}")]
+        public async Task<ActionResult<ProductSellerDto>> GetSellerProduct([FromRoute] Guid productId, CancellationToken ct)
         {
-            ProductUpdateDto dto = _mapper.Map<ProductUpdateDto>(request);
+            var result = await _service.GetSellerProduct(productId, ct);
 
-            await _service.Update(dto, ct);
-
-            return Ok();
+            return result.IsSuccess
+                ? Ok(result.Value)
+                : _errorFactoryHandler.GetHandler(result.Errors.First()).Handle(result.Errors.First());
         }
 
-        [Authorize(Policy = "Seller")]
-
-        //[Authorize(Roles = "Seller")]
-        [HttpDelete("delete")]
-        public async Task<ActionResult> Delete([FromRoute] Guid id, CancellationToken ct)
+        [Authorize(Policy = "seller")]
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> UpdateProduct([FromBody] ProductUpdateRequest request, CancellationToken ct)
         {
-            await _service.Delete(id, ct);
+            var result = await _service.UpdateProduct(request, ct);
 
-            return Ok();
+            return result.IsSuccess
+                ? Ok()
+                : _errorFactoryHandler.GetHandler(result.Errors.First()).Handle(result.Errors.First());
+        }
+
+        [Authorize(Policy = "seller")]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProduct([FromRoute] Guid id, CancellationToken ct)
+        {
+            var result = await _service.DeleteProduct(id, ct);
+
+            return result.IsSuccess
+                ? Ok()
+                : _errorFactoryHandler.GetHandler(result.Errors.First()).Handle(result.Errors.First());
         }
     }
 }

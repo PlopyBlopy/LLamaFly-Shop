@@ -1,0 +1,1375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage line-rate="0.0357142857142857" branch-rate="0" lines-covered="4" lines-valid="112" branches-covered="0" branches-valid="6" complexity="222" version="0" timestamp="1742491252">
+  <sources />
+  <packages>
+    <package name="Core" line-rate="0" branch-rate="1" complexity="213">
+      <classes>
+        <class name="Core.Configs.CategoryGuidConfig" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Configs\CategoryGuidConfig.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".cctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+                <line number="6" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="0" branch="false" />
+            <line number="6" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Configs.ProfileServiceEndpoints" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Configs\ProfileServiceEndpoints.cs" line-rate="0" branch-rate="1" complexity="2">
+          <methods>
+            <method name="get_SellerCheck" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_SellerCheck" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Configs.StatusCode500Config" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Configs\StatusCode500Config.cs" line-rate="0" branch-rate="1" complexity="8">
+          <methods>
+            <method name="get_Title" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Title" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Type" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="6" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Type" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="6" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_DetailRelease" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_DetailRelease" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Extensions" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Extensions" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="0" branch="false" />
+            <line number="6" hits="0" branch="false" />
+            <line number="7" hits="0" branch="false" />
+            <line number="8" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Dtos.CategoryCreateDto" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Dtos\CategoryCreateDto.cs" line-rate="0" branch-rate="1" complexity="5">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Title" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Title" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_ParentCategoryId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_ParentCategoryId" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Dtos.CategoryDto" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Dtos\CategoryDto.cs" line-rate="0" branch-rate="1" complexity="11">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+                <line number="7" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Id" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Title" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Title" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_ParentCategoryId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_ParentCategoryId" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Level" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Level" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Subcategories" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Subcategories" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="0" branch="false" />
+            <line number="7" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Dtos.CategoryFlatDto" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Dtos\CategoryFlatDto.cs" line-rate="0" branch-rate="1" complexity="9">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Id" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Title" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Title" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_ParentCategoryId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_ParentCategoryId" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Level" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Level" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Dtos.ProductCardDto" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Dtos\ProductCardDto.cs" line-rate="0" branch-rate="1" complexity="9">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Id" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Title" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Title" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Price" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Price" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Rating" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Rating" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Dtos.ProductCreatedDto" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Dtos\ProductCreatedDto.cs" line-rate="0" branch-rate="1" complexity="3">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_productId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_productId" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Dtos.ProductCreateDto" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Dtos\ProductCreateDto.cs" line-rate="0" branch-rate="1" complexity="11">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Title" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Title" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Description" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Description" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Price" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Price" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_CategoryId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_CategoryId" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_SellerId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_SellerId" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Dtos.ProductDto" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Dtos\ProductDto.cs" line-rate="0" branch-rate="1" complexity="11">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Id" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Title" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Title" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Description" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Description" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Price" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Price" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Rating" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Rating" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Dtos.ProductFiltersDto" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Dtos\ProductFiltersDto.cs" line-rate="0" branch-rate="1" complexity="9">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Search" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Search" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_CategoryId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_CategoryId" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_SortProp" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_SortProp" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_SortOrder" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_SortOrder" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Dtos.ProductSellerDto" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Dtos\ProductSellerDto.cs" line-rate="0" branch-rate="1" complexity="13">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Id" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Title" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Title" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Description" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Description" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Price" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Price" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_CreatedAt" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_CreatedAt" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_CategoryId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_CategoryId" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Dtos.ProductUpdateDto" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Dtos\ProductUpdateDto.cs" line-rate="0" branch-rate="1" complexity="11">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Id" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Title" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Title" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Description" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Description" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Price" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Price" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_CategoryId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_CategoryId" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Requests.CategoryCreateRequest" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Requests\CategoryCreateRequest.cs" line-rate="0" branch-rate="1" complexity="5">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Title" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Title" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_ParentCategoryId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_ParentCategoryId" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Requests.ProductCreateRequest" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Requests\ProductCreateRequest.cs" line-rate="0" branch-rate="1" complexity="11">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Title" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Title" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Description" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Description" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Price" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Price" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_CategoryId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_CategoryId" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_SellerId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_SellerId" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Requests.ProductFiltersRequest" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Requests\ProductFiltersRequest.cs" line-rate="0" branch-rate="1" complexity="9">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Search" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Search" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_CategoryId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_CategoryId" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_SortProp" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_SortProp" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_SortOrder" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_SortOrder" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Requests.ProductUpdateRequest" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Requests\ProductUpdateRequest.cs" line-rate="0" branch-rate="1" complexity="11">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Id" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Title" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Title" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Description" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Description" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Price" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Price" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_CategoryId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_CategoryId" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Responses.CategoryResponse" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Responses\CategoryResponse.cs" line-rate="0" branch-rate="1" complexity="2">
+          <methods>
+            <method name=".ctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Responses.ProductResponse" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Responses\ProductResponse.cs" line-rate="0" branch-rate="1" complexity="11">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Id" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Title" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Title" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Description" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Description" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Price" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Price" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Rating" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Rating" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Contracts.Responses.ProductSellerResponse" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Contracts\Responses\ProductSellerResponse.cs" line-rate="0" branch-rate="1" complexity="13">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Id" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Title" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Title" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Description" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Description" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Price" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Price" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_CreatedAt" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_CreatedAt" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_CategoryId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_CategoryId" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="3" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Extensions.Errors.BaseErrors" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Extensions\Errors\BaseErrors.cs" line-rate="0" branch-rate="1" complexity="6">
+          <methods>
+            <method name="CharactersLength" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="16" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="ValueBetween" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="19" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="ValueBetween" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="22" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="ValueBetween" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="25" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="FieldError" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="28" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name=".cctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="13" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="13" hits="0" branch="false" />
+            <line number="16" hits="0" branch="false" />
+            <line number="19" hits="0" branch="false" />
+            <line number="22" hits="0" branch="false" />
+            <line number="25" hits="0" branch="false" />
+            <line number="28" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Extensions.Errors.ProductErrors" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Extensions\Errors\ProductErrors.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="ProductCreateRequestValidatorError" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Extensions.Errors.ValidationError" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Extensions\Errors\ValidationError.cs" line-rate="0" branch-rate="1" complexity="6">
+          <methods>
+            <method name="get_Reasons" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Reasons" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Message" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Metadata" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="10" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="set_Metadata" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="10" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="0" branch="false" />
+                <line number="9" hits="0" branch="false" />
+                <line number="10" hits="0" branch="false" />
+                <line number="12" hits="0" branch="false" />
+                <line number="13" hits="0" branch="false" />
+                <line number="14" hits="0" branch="false" />
+                <line number="15" hits="0" branch="false" />
+                <line number="16" hits="0" branch="false" />
+                <line number="17" hits="0" branch="false" />
+                <line number="18" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="8" hits="0" branch="false" />
+            <line number="9" hits="0" branch="false" />
+            <line number="10" hits="0" branch="false" />
+            <line number="12" hits="0" branch="false" />
+            <line number="13" hits="0" branch="false" />
+            <line number="14" hits="0" branch="false" />
+            <line number="15" hits="0" branch="false" />
+            <line number="16" hits="0" branch="false" />
+            <line number="17" hits="0" branch="false" />
+            <line number="18" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Extensions.Errors.ValidationFieldError" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Extensions\Errors\ValidationFieldError.cs" line-rate="0" branch-rate="1" complexity="4">
+          <methods>
+            <method name="get_Reasons" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Message" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Metadata" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="0" branch="false" />
+                <line number="13" hits="0" branch="false" />
+                <line number="14" hits="0" branch="false" />
+                <line number="15" hits="0" branch="false" />
+                <line number="16" hits="0" branch="false" />
+                <line number="17" hits="0" branch="false" />
+                <line number="18" hits="0" branch="false" />
+                <line number="19" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="7" hits="0" branch="false" />
+            <line number="9" hits="0" branch="false" />
+            <line number="11" hits="0" branch="false" />
+            <line number="13" hits="0" branch="false" />
+            <line number="14" hits="0" branch="false" />
+            <line number="15" hits="0" branch="false" />
+            <line number="16" hits="0" branch="false" />
+            <line number="17" hits="0" branch="false" />
+            <line number="18" hits="0" branch="false" />
+            <line number="19" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Interfaces.Constraints.IProductConstraints" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Interfaces\Constraints\IProductConstraints.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".cctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="0" branch="false" />
+                <line number="12" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="11" hits="0" branch="false" />
+            <line number="12" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Models.Category" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Models\Category.cs" line-rate="0" branch-rate="1" complexity="4">
+          <methods>
+            <method name="get_Title" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_ParentCategoryId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_SubcategoriesIds" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="0" branch="false" />
+                <line number="12" hits="0" branch="false" />
+                <line number="13" hits="0" branch="false" />
+                <line number="14" hits="0" branch="false" />
+                <line number="15" hits="0" branch="false" />
+                <line number="16" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="7" hits="0" branch="false" />
+            <line number="8" hits="0" branch="false" />
+            <line number="9" hits="0" branch="false" />
+            <line number="11" hits="0" branch="false" />
+            <line number="12" hits="0" branch="false" />
+            <line number="13" hits="0" branch="false" />
+            <line number="14" hits="0" branch="false" />
+            <line number="15" hits="0" branch="false" />
+            <line number="16" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Models.ModelBase" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Models\ModelBase.cs" line-rate="0" branch-rate="1" complexity="2">
+          <methods>
+            <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="0" branch="false" />
+                <line number="8" hits="0" branch="false" />
+                <line number="9" hits="0" branch="false" />
+                <line number="10" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="0" branch="false" />
+            <line number="7" hits="0" branch="false" />
+            <line number="8" hits="0" branch="false" />
+            <line number="9" hits="0" branch="false" />
+            <line number="10" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Core.Models.Product" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Core\Models\Product.cs" line-rate="0" branch-rate="1" complexity="8">
+          <methods>
+            <method name="get_Title" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Description" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Price" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="10" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Rating" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_CreatedAt" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="12" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_CategoryId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="13" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_SellerId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="14" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="16" hits="0" branch="false" />
+                <line number="17" hits="0" branch="false" />
+                <line number="18" hits="0" branch="false" />
+                <line number="19" hits="0" branch="false" />
+                <line number="20" hits="0" branch="false" />
+                <line number="21" hits="0" branch="false" />
+                <line number="22" hits="0" branch="false" />
+                <line number="23" hits="0" branch="false" />
+                <line number="24" hits="0" branch="false" />
+                <line number="25" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="7" hits="0" branch="false" />
+            <line number="9" hits="0" branch="false" />
+            <line number="10" hits="0" branch="false" />
+            <line number="11" hits="0" branch="false" />
+            <line number="12" hits="0" branch="false" />
+            <line number="13" hits="0" branch="false" />
+            <line number="14" hits="0" branch="false" />
+            <line number="16" hits="0" branch="false" />
+            <line number="17" hits="0" branch="false" />
+            <line number="18" hits="0" branch="false" />
+            <line number="19" hits="0" branch="false" />
+            <line number="20" hits="0" branch="false" />
+            <line number="21" hits="0" branch="false" />
+            <line number="22" hits="0" branch="false" />
+            <line number="23" hits="0" branch="false" />
+            <line number="24" hits="0" branch="false" />
+            <line number="25" hits="0" branch="false" />
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="Tests" line-rate="0.148148148148148" branch-rate="0" complexity="9">
+      <classes>
+        <class name="Tests.PerformanceTests.Infrastructure.BenchmarkRepositoryGetProductByIdTest" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Tests\PerformanceTests\Infrastructure\ProductRepositoryGetProductByIdTest.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="RunProductRepositoryBenchmark" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="15" hits="1" branch="false" />
+                <line number="16" hits="1" branch="false" />
+                <line number="17" hits="1" branch="false" />
+                <line number="18" hits="1" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="15" hits="1" branch="false" />
+            <line number="16" hits="1" branch="false" />
+            <line number="17" hits="1" branch="false" />
+            <line number="18" hits="1" branch="false" />
+          </lines>
+        </class>
+        <class name="Tests.PerformanceTests.Infrastructure.ProductRepositoryGetProductByIdTest" filename="C:\Users\Alexey\source\repos\Shopee-App\ProductService\Tests\PerformanceTests\Infrastructure\ProductRepositoryGetProductByIdTest.cs" line-rate="0" branch-rate="0" complexity="8">
+          <methods>
+            <method name="Setup" signature="()" line-rate="0" branch-rate="0" complexity="4">
+              <lines>
+                <line number="30" hits="0" branch="false" />
+                <line number="31" hits="0" branch="false" />
+                <line number="33" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="35" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="36" hits="0" branch="false" />
+                <line number="37" hits="0" branch="false" />
+                <line number="38" hits="0" branch="false" />
+                <line number="39" hits="0" branch="false" />
+                <line number="41" hits="0" branch="false" />
+                <line number="43" hits="0" branch="false" />
+                <line number="45" hits="0" branch="false" />
+                <line number="46" hits="0" branch="false" />
+                <line number="47" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="ClearCache" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="57" hits="0" branch="false" />
+                <line number="58" hits="0" branch="false" />
+                <line number="59" hits="0" branch="false" />
+                <line number="60" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="Cleanup" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="64" hits="0" branch="false" />
+                <line number="65" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="66" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="51" hits="0" branch="false" />
+                <line number="52" hits="0" branch="false" />
+                <line number="53" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="30" hits="0" branch="false" />
+            <line number="31" hits="0" branch="false" />
+            <line number="33" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="35" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="36" hits="0" branch="false" />
+            <line number="37" hits="0" branch="false" />
+            <line number="38" hits="0" branch="false" />
+            <line number="39" hits="0" branch="false" />
+            <line number="41" hits="0" branch="false" />
+            <line number="43" hits="0" branch="false" />
+            <line number="45" hits="0" branch="false" />
+            <line number="46" hits="0" branch="false" />
+            <line number="47" hits="0" branch="false" />
+            <line number="51" hits="0" branch="false" />
+            <line number="52" hits="0" branch="false" />
+            <line number="53" hits="0" branch="false" />
+            <line number="57" hits="0" branch="false" />
+            <line number="58" hits="0" branch="false" />
+            <line number="59" hits="0" branch="false" />
+            <line number="60" hits="0" branch="false" />
+            <line number="64" hits="0" branch="false" />
+            <line number="65" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="66" hits="0" branch="false" />
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>

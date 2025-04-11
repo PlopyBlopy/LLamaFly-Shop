@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "API.Controllers.CategoryController",
-    "Method": "Add",
-    "RelativePath": "Category/add",
+    "ContainingType": "API.Controllers.CategoriesController",
+    "Method": "AddCategory",
+    "RelativePath": "api/Categories",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -16,9 +16,129 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API.Controllers.CategoriesController",
+    "Method": "GetCategory",
+    "RelativePath": "api/Categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Core.Contracts.Dtos.CategoryHierarchyDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.CategoriesController",
+    "Method": "UpdateCategory",
+    "RelativePath": "api/Categories",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Core.Contracts.Requests.CategoryUpdateRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.CategoriesController",
+    "Method": "DeleteCategory",
+    "RelativePath": "api/Categories",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.CategoriesController",
+    "Method": "IsCategoryExists",
+    "RelativePath": "api/Categories/isexist",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.CategoriesController",
+    "Method": "AddCategories",
+    "RelativePath": "api/Categories/range",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requests",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Core.Contracts.Requests.CategoryCreateRequest, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.CategoriesController",
+    "Method": "GetCategories",
+    "RelativePath": "api/Categories/range",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Core.Contracts.Dtos.CategoryHierarchyDto, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "API.Controllers.ProductsController",
-    "Method": "Add",
-    "RelativePath": "Products/add",
+    "Method": "AddProduct",
+    "RelativePath": "api/Products",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -33,8 +153,8 @@
   },
   {
     "ContainingType": "API.Controllers.ProductsController",
-    "Method": "GetCards",
-    "RelativePath": "Products/cards",
+    "Method": "GetProductsCards",
+    "RelativePath": "api/Products",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -62,7 +182,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Core.Contracts.Dto.ProductCardDto, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Core.Contracts.Dtos.ProductCardDto, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -74,8 +194,55 @@
   },
   {
     "ContainingType": "API.Controllers.ProductsController",
-    "Method": "Delete",
-    "RelativePath": "Products/delete/{ids}",
+    "Method": "GetProduct",
+    "RelativePath": "api/Products/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Core.Contracts.Dtos.ProductDetailDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.ProductsController",
+    "Method": "UpdateProduct",
+    "RelativePath": "api/Products/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Core.Contracts.Requests.ProductUpdateRequest",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ProductsController",
+    "Method": "DeleteProduct",
+    "RelativePath": "api/Products/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -83,14 +250,93 @@
       {
         "Name": "id",
         "Type": "System.Guid",
-        "IsRequired": false
-      },
-      {
-        "Name": "ids",
-        "Type": "",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ProductsController",
+    "Method": "GetSellerProductsCards",
+    "RelativePath": "api/Products/profile/seller/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Core.Contracts.Dtos.ProductCardDto, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.ProductsController",
+    "Method": "AddProductRange",
+    "RelativePath": "api/Products/range",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requests",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Core.Contracts.Requests.ProductCreateRequest, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ProductsController",
+    "Method": "AddProductRange",
+    "RelativePath": "api/Products/range/withrating",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requests",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Core.Contracts.Requests.ProductCreateWithRatingRequest, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ProductsController",
+    "Method": "GetSellerProduct",
+    "RelativePath": "api/Products/seller/{productId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Core.Contracts.Dtos.ProductSellerDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]
