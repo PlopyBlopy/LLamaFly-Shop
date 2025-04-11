@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "ProfileServiceConnectionString": "Server=localhost;Port=5434;Database=ProfileServiceDB;User Id=admin;Password=12345;"
+  }
+}
