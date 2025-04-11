@@ -8,6 +8,7 @@ namespace API.Extensions
         public static IServiceCollection AddRepositoryServices(this IServiceCollection service)
         {
             service.AddScoped<IUserRepository, UserRepository>();
+            service.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 
             return service;
         }

@@ -1,4 +1,4 @@
 ﻿namespace Core.Contracts.Dtos
 {
-    public record UserRegisterDto(string Role, string Login, string Password, string Email, string? PhoneNumber);
+    public record UserRegisterDto(string Login, string Password, string Email, string PhoneNumber);
 }

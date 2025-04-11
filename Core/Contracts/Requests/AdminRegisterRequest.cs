@@ -1,4 +1,4 @@
 ﻿namespace Core.Contracts.Requests
 {
-    public record AdminRegisterRequest(string Surname, string Name, string Patronymic);
+    public record AdminRegisterRequest();
 }

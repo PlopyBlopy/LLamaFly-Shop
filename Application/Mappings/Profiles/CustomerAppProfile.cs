@@ -1,6 +1,7 @@
-﻿using AutoMapper;
-using Core.Contracts.Dtos;
-using Application.Mappings.Converters;
+﻿using Application.Mappings.Converters;
+using AutoMapper;
+using Core.Contracts.Messages;
+using Core.Contracts.Requests;
 
 namespace Application.Mappings.Profiles
 {
@@ -8,7 +9,7 @@ namespace Application.Mappings.Profiles
     {
         public CustomerAppProfile()
         {
-            CreateMap<CustomerRegisterDto, CustomerProfileDto>().ConvertUsing<CustomerRegisterDtoToProfileDtoConverter>();
+            CreateMap<CustomerRegisterRequest, CustomerCreateMessage>().ConvertUsing<CustomerRegisterRequestToCreateMessageConverter>();
         }
     }
 }

@@ -16,13 +16,6 @@ namespace Infrastructure.Kafka.Producers
         {
             _options = optionsMonitor.Get(configurationName);
 
-            //TODO: Validation
-            //if (string.IsNullOrEmpty(_options.BootstrapServers))
-            //    throw new ArgumentException("BootstrapServers is not set.");
-
-            //if (string.IsNullOrEmpty(_options.Topic))
-            //    throw new ArgumentException("Topic is not set.");
-
             var config = new ProducerConfig
             {
                 BootstrapServers = _options.BootstrapServers

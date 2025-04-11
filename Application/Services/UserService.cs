@@ -1,7 +1,12 @@
 ﻿using AutoMapper;
+using Core.Contracts.Messages;
+using Core.Contracts.Requests;
+using Core.Extensions.Errors;
 using Core.Interfaces;
 using Core.Models;
-using Core.Contracts.Dtos;
+using FluentResults;
+using FluentValidation;
+using static Core.Interfaces.Constraints.IUserConstraints;
 
 namespace Application.Services
 {
@@ -9,76 +14,49 @@ namespace Application.Services
     {
         private readonly IUserRepository _repository;
         private readonly IMapper _mapper;
-        private readonly IKafkaProducer<UserAdminProfileDto> _producerAdmin;
-        private readonly IKafkaProducer<UserSellerProfileDto> _producerSeller;
-        private readonly IKafkaProducer<UserCustomerProfileDto> _producerCustomer;
-        private readonly IPasswordHasher _hasher;
-        private readonly ITokenService _tokenService;
+        private readonly IValidator<UserRegisterRequest> _registerValidator;
 
-        //ALERT: Дублирование кода для producerAdmin, producerSeller, producerCustomer
-        public UserService(IUserRepository repository, IMapper mapper, IKafkaProducer<UserAdminProfileDto> producerAdmin, IKafkaProducer<UserSellerProfileDto> producerSeller, IKafkaProducer<UserCustomerProfileDto> producerCustomer, IPasswordHasher hasher, ITokenService tokenService)
+        public UserService(IUserRepository repository, IMapper mapper, IValidator<UserRegisterRequest> registerValidator)
         {
             _repository = repository;
             _mapper = mapper;
-            _producerAdmin = producerAdmin;
-            _producerSeller = producerSeller;
-            _producerCustomer = producerCustomer;
-            _hasher = hasher;
-            _tokenService = tokenService;
+            _registerValidator = registerValidator;
         }
 
-        public async Task<string> Login(UserLoginDto dto, CancellationToken ct)
+        public async Task<Result<UserCreateMessage>> AddUser(UserRole role, UserRegisterRequest request, CancellationToken ct)
         {
-            var model = await _repository.Get(dto.Identifier, ct);
+            var validationResult = _registerValidator.Validate(request);
 
-            if (model == null)
-                throw new UnauthorizedAccessException("Пользователь не найден");
+            if (!validationResult.IsValid)
+            {
+                var fieldErrors = validationResult.Errors
+                    .Select(e => new ValidationFieldError(
+                        message: e.ErrorMessage,
+                        errorCode: e.ErrorCode,
+                        propertyName: e.PropertyName,
+                        attemptedValue: e.AttemptedValue))
+                    .ToList();
 
-            bool passwordVerify = _hasher.Verify(dto.Password, model.Password);
-            if (!passwordVerify)
-                throw new UnauthorizedAccessException("Неверный пароль");
+                return Result.Fail<UserCreateMessage>(new ValidationError("User", fieldErrors));
+            }
 
-            return _tokenService.GenerateToken(model);
+            var model = _mapper.Map<User>(request, opt => opt.Items.Add("Role", role));
+
+            var result = await _repository.Add(model, ct);
+
+            if (result.IsFailed)
+            {
+                return result;
+            }
+
+            var message = _mapper.Map<UserCreateMessage>(model);
+
+            return Result.Ok(message);
         }
 
-        //ALERT: Дублирование кода для RegisterAdmin, RegisterSeller, RegisterCustomer
-        public async Task RegisterAdmin(UserAdminRegisterDto dto, CancellationToken ct)
+        public Task<Result> UpdateUser()
         {
-            var model = _mapper.Map<User>(dto.User);
-
-            await _repository.Add(model, ct);
-
-            var user = _mapper.Map<UserProfileDto>(model);
-            var admin = _mapper.Map<AdminProfileDto>(dto.Admin);
-            var userAdmin = new UserAdminProfileDto(user, admin);
-
-            await _producerAdmin.ProduceAsync(userAdmin.User.id.ToString(), userAdmin, ct);
-        }
-
-        public async Task RegisterSeller(UserSellerRegisterDto dto, CancellationToken ct)
-        {
-            var model = _mapper.Map<User>(dto.User);
-
-            await _repository.Add(model, ct);
-
-            var user = _mapper.Map<UserProfileDto>(model);
-            var seller = _mapper.Map<SellerProfileDto>(dto.Seller);
-            var userSeller = new UserSellerProfileDto(user, seller);
-
-            await _producerSeller.ProduceAsync(userSeller.User.id.ToString(), userSeller, ct);
-        }
-
-        public async Task RegisterCustomer(UserCustomerRegisterDto dto, CancellationToken ct)
-        {
-            var model = _mapper.Map<User>(dto.User);
-
-            await _repository.Add(model, ct);
-
-            var user = _mapper.Map<UserProfileDto>(model);
-            var customer = _mapper.Map<CustomerProfileDto>(dto.Customer);
-            var userCustomer = new UserCustomerProfileDto(user, customer);
-
-            await _producerCustomer.ProduceAsync(userCustomer.User.id.ToString(), userCustomer, ct);
+            throw new NotImplementedException();
         }
     }
 }

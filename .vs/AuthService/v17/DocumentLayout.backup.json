@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2823EA45-37CD-42F2-979D-7C5A92C848DF}|Application\\Application.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2823EA45-37CD-42F2-979D-7C5A92C848DF}|Application\\Application.csproj|solutionrelative:application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|solutionrelative:api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\api\\extensions\\authenticationextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|solutionrelative:api\\extensions\\authenticationextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\api\\extensions\\addauthorizationsettingsextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|solutionrelative:api\\extensions\\addauthorizationsettingsextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|solutionrelative:api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{013CC77B-A26F-4D90-9B4A-B4949F07AC0B}|Infrastructure\\Infrastructure.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\infrastructure\\databases\\dapper\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,110 +17,231 @@
     {
       "AbsoluteMoniker": "D:0:0:{2823EA45-37CD-42F2-979D-7C5A92C848DF}|Application\\Application.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2823EA45-37CD-42F2-979D-7C5A92C848DF}|Application\\Application.csproj|solutionrelative:application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\api\\extensions\\kafkaproducerextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|solutionrelative:api\\extensions\\kafkaproducerextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{013CC77B-A26F-4D90-9B4A-B4949F07AC0B}|Infrastructure\\Infrastructure.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\infrastructure\\kafka\\producers\\kafkaproducer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{013CC77B-A26F-4D90-9B4A-B4949F07AC0B}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\kafka\\producers\\kafkaproducer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|solutionrelative:api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\api\\controllers\\tokencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|solutionrelative:api\\controllers\\tokencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|solutionrelative:api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\api\\extensions\\corsextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|solutionrelative:api\\extensions\\corsextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\api\\extensions\\exceptionshandlerextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|solutionrelative:api\\extensions\\exceptionshandlerextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\api\\handlers\\errorshandlers\\errorfactoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|solutionrelative:api\\handlers\\errorshandlers\\errorfactoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|c:\\users\\alexey\\source\\repos\\shopee-app\\authservice\\api\\extensions\\fluentvalidationextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{944CE75F-0AB6-4452-8B83-224648678C06}|API\\API.csproj|solutionrelative:api\\extensions\\fluentvalidationextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 1,
+      "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 423,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 281,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "API\\Controllers\\AuthController.cs",
               "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Controllers\\AuthController.cs",
               "RelativeToolTip": "API\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAIA4wCgAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-16T09:35:00.298Z",
+              "WhenOpened": "2025-03-26T07:07:17.295Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\Application\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\Application\\Services\\AuthService.cs",
+              "RelativeToolTip": "Application\\Services\\AuthService.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAowHYAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T07:11:29.633Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\Application\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\UserService.cs",
-              "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\Application\\Services\\UserService.cs",
-              "RelativeToolTip": "Application\\Services\\UserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAUAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "TokenController.cs",
+              "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Controllers\\TokenController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\TokenController.cs",
+              "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Controllers\\TokenController.cs",
+              "RelativeToolTip": "API\\Controllers\\TokenController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAA1wC4AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T19:47:00.9Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T14:39:47.021Z",
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\Infrastructure\\DataBases\\Dapper\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\DataBases\\Dapper\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\Infrastructure\\DataBases\\Dapper\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "Infrastructure\\DataBases\\Dapper\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwCUAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T17:11:00.674Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Program.cs",
               "RelativeDocumentMoniker": "API\\Program.cs",
               "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Program.cs",
               "RelativeToolTip": "API\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T07:54:53.179Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T07:09:54.135Z",
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AuthenticationExtension.cs",
-              "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Extensions\\AuthenticationExtension.cs",
-              "RelativeDocumentMoniker": "API\\Extensions\\AuthenticationExtension.cs",
-              "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Extensions\\AuthenticationExtension.cs",
-              "RelativeToolTip": "API\\Extensions\\AuthenticationExtension.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T07:53:13.72Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AddAuthorizationSettingsExtension.cs",
-              "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Extensions\\AddAuthorizationSettingsExtension.cs",
-              "RelativeDocumentMoniker": "API\\Extensions\\AddAuthorizationSettingsExtension.cs",
-              "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Extensions\\AddAuthorizationSettingsExtension.cs",
-              "RelativeToolTip": "API\\Extensions\\AddAuthorizationSettingsExtension.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T07:52:57.216Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\appsettings.json",
               "RelativeDocumentMoniker": "API\\appsettings.json",
               "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\appsettings.json",
               "RelativeToolTip": "API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-24T07:03:22.7Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T07:14:30.494Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "KafkaProducer.cs",
+              "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\Infrastructure\\Kafka\\Producers\\KafkaProducer.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Kafka\\Producers\\KafkaProducer.cs",
+              "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\Infrastructure\\Kafka\\Producers\\KafkaProducer.cs",
+              "RelativeToolTip": "Infrastructure\\Kafka\\Producers\\KafkaProducer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T15:48:48.056Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\Infrastructure\\DataBases\\Dapper\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\DataBases\\Dapper\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\Infrastructure\\DataBases\\Dapper\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Infrastructure\\DataBases\\Dapper\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAqwB8AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T13:40:23.173Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "API\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Properties\\launchSettings.json",
+              "RelativeToolTip": "API\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-06T17:17:03.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "KafkaProducerExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Extensions\\KafkaProducerExtensions.cs",
+              "RelativeDocumentMoniker": "API\\Extensions\\KafkaProducerExtensions.cs",
+              "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Extensions\\KafkaProducerExtensions.cs",
+              "RelativeToolTip": "API\\Extensions\\KafkaProducerExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T15:48:03.457Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ExceptionsHandlerExtension.cs",
+              "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Extensions\\ExceptionsHandlerExtension.cs",
+              "RelativeDocumentMoniker": "API\\Extensions\\ExceptionsHandlerExtension.cs",
+              "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Extensions\\ExceptionsHandlerExtension.cs",
+              "RelativeToolTip": "API\\Extensions\\ExceptionsHandlerExtension.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T07:17:46.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ErrorFactoryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Handlers\\ErrorsHandlers\\ErrorFactoryHandler.cs",
+              "RelativeDocumentMoniker": "API\\Handlers\\ErrorsHandlers\\ErrorFactoryHandler.cs",
+              "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Handlers\\ErrorsHandlers\\ErrorFactoryHandler.cs",
+              "RelativeToolTip": "API\\Handlers\\ErrorsHandlers\\ErrorFactoryHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T07:17:27.199Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CorsExtension.cs",
+              "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Extensions\\CorsExtension.cs",
+              "RelativeDocumentMoniker": "API\\Extensions\\CorsExtension.cs",
+              "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Extensions\\CorsExtension.cs",
+              "RelativeToolTip": "API\\Extensions\\CorsExtension.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T07:15:05.353Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\Application\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\Application\\Services\\UserService.cs",
+              "RelativeToolTip": "Application\\Services\\UserService.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwDAAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T07:11:23.55Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "FluentValidationExtension.cs",
+              "DocumentMoniker": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Extensions\\FluentValidationExtension.cs",
+              "RelativeDocumentMoniker": "API\\Extensions\\FluentValidationExtension.cs",
+              "ToolTip": "C:\\Users\\Alexey\\source\\repos\\Shopee-App\\AuthService\\API\\Extensions\\FluentValidationExtension.cs",
+              "RelativeToolTip": "API\\Extensions\\FluentValidationExtension.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T07:09:12.742Z"
             }
           ]
         }

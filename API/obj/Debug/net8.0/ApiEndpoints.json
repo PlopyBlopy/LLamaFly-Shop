@@ -2,7 +2,7 @@
   {
     "ContainingType": "API.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "Auth/login",
+    "RelativePath": "api/auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -17,15 +17,25 @@
   },
   {
     "ContainingType": "API.Controllers.AuthController",
+    "Method": "logout",
+    "RelativePath": "api/auth/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.AuthController",
     "Method": "RegisterAdmin",
-    "RelativePath": "Auth/register-admin",
+    "RelativePath": "api/auth/register/admin",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Core.Contracts.Requests.UserAdminRegisterRequest",
+        "Type": "Core.Contracts.Requests.UserProfileAdminRegisterRequest",
         "IsRequired": true
       }
     ],
@@ -34,14 +44,14 @@
   {
     "ContainingType": "API.Controllers.AuthController",
     "Method": "RegisterCustomer",
-    "RelativePath": "Auth/register-customer",
+    "RelativePath": "api/auth/register/customer",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Core.Contracts.Requests.UserCustomerRegisterRequest",
+        "Type": "Core.Contracts.Requests.UserProfileCustomerRegisterRequest",
         "IsRequired": true
       }
     ],
@@ -50,14 +60,40 @@
   {
     "ContainingType": "API.Controllers.AuthController",
     "Method": "RegisterSeller",
-    "RelativePath": "Auth/register-seller",
+    "RelativePath": "api/auth/register/seller",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Core.Contracts.Requests.UserSellerRegisterRequest",
+        "Type": "Core.Contracts.Requests.UserProfileSellerRegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.TokenController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/auth/token/refresh",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.TokenController",
+    "Method": "RevokeToken",
+    "RelativePath": "api/auth/token/revoke",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Core.Contracts.Requests.RefreshTokenRequest",
         "IsRequired": true
       }
     ],

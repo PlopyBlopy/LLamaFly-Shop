@@ -1,7 +1,9 @@
 ﻿using Application.Mappings.Converters;
 using AutoMapper;
-using Core.Models;
 using Core.Contracts.Dtos;
+using Core.Contracts.Messages;
+using Core.Contracts.Requests;
+using Core.Models;
 
 namespace Application.Mappings.Profiles
 {
@@ -9,8 +11,9 @@ namespace Application.Mappings.Profiles
     {
         public UserAppProfile()
         {
-            CreateMap<UserRegisterDto, User>().ConvertUsing<UserRegisterDtoToModelConverter>();
-            CreateMap<User, UserProfileDto>().ConvertUsing<UserModelToUserProfileConverter>();
+            CreateMap<UserLoginRequest, UserLoginDto>().ConvertUsing<UserLoginRequestToLoginDtoConverter>();
+            CreateMap<UserRegisterRequest, User>().ConvertUsing<UserRegisterRequestToModelConverter>();
+            CreateMap<User, UserCreateMessage>().ConvertUsing<UserModelToCreateMessageConverter>();
         }
     }
 }

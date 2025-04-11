@@ -1,84 +1,94 @@
-﻿using AutoMapper;
-using Core.Interfaces;
-using Microsoft.AspNetCore.Mvc;
+﻿using API.Interfaces;
+using AutoMapper;
 using Core.Contracts.Dtos;
 using Core.Contracts.Requests;
+using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/auth")]
     public class AuthController : ControllerBase
     {
         private readonly ITokenService _tokenService;
-        private readonly IUserService _service;
+        private readonly IErrorFactoryHandler _errorFactoryHandler;
+        private readonly IAuthService _authService;
         private readonly IMapper _mapper;
 
-        public AuthController(IUserService service, IMapper mapper, ITokenService tokenService)
+        public AuthController(IAuthService service, IMapper mapper, ITokenService tokenService, IErrorFactoryHandler errorFactoryHandler)
         {
             _tokenService = tokenService;
-            _service = service;
+            _errorFactoryHandler = errorFactoryHandler;
+            _authService = service;
             _mapper = mapper;
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult> Login([FromBody] UserLoginRequest request, CancellationToken ct)
+        public async Task<IActionResult> Login([FromBody] UserLoginRequest request, CancellationToken ct)
         {
-            // TODO: validation
+            var newTokens = await _authService.Login(request, ct);
 
-            var dto = _mapper.Map<UserLoginDto>(request);
+            Response.Cookies.Append("refreshToken", newTokens.Value.RefreshToken.Token, new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.Strict,
+                Expires = newTokens.Value.RefreshToken.Expires,
+            });
 
-            string token = await _service.Login(dto, ct);
+            return Ok(new
+            {
+                AccessToken = newTokens.Value.AccessToken,
+            });
+        }
 
-            return Ok(new { Token = token });
+        [HttpPost("logout")]
+        public async Task<IActionResult> logout(CancellationToken ct)
+        {
+            var refreshTokenValue = Request.Cookies["refreshToken"];
+
+            if (string.IsNullOrEmpty(refreshTokenValue))
+                return BadRequest("Refresh token not found");
+
+            var dto = new RefreshTokenDto(refreshTokenValue);
+
+            await _tokenService.Revoke(dto, ct);
+
+            return Ok();
         }
 
         //ALERT: Дублирование кода для RegisterAdmin, RegisterSeller, RegisterCustomer
-        [Authorize(Policy = "Admin")]
-        [HttpPost("register-admin")]
-        public async Task<ActionResult> RegisterAdmin([FromBody] UserAdminRegisterRequest request, CancellationToken ct)
+        [Authorize(Policy = "admin")]
+        [HttpPost("register/admin")]
+        public async Task<IActionResult> RegisterAdmin([FromBody] UserProfileAdminRegisterRequest request, CancellationToken ct)
         {
-            // TODO: validation User
+            var result = await _authService.RegisterAdmin(request, ct);
 
-            var user = _mapper.Map<UserRegisterDto>(request.User);
-            var admin = _mapper.Map<AdminRegisterDto>(request.Admin);
-
-            UserAdminRegisterDto dto = new UserAdminRegisterDto(user, admin);
-
-            await _service.RegisterAdmin(dto, ct);
-
-            return Ok();
+            return result.IsSuccess
+            ? Ok()
+            : _errorFactoryHandler.GetHandler(result.Errors.First()).Handle(result.Errors.First());
         }
 
-        [HttpPost("register-seller")]
-        public async Task<ActionResult> RegisterSeller([FromBody] UserSellerRegisterRequest request, CancellationToken ct)
+        [HttpPost("register/seller")]
+        public async Task<IActionResult> RegisterSeller([FromBody] UserProfileSellerRegisterRequest request, CancellationToken ct)
         {
-            // TODO: validation User
+            var result = await _authService.RegisterSeller(request, ct);
 
-            var user = _mapper.Map<UserRegisterDto>(request.User);
-            var seller = _mapper.Map<SellerRegisterDto>(request.Seller);
-
-            UserSellerRegisterDto dto = new UserSellerRegisterDto(user, seller);
-
-            await _service.RegisterSeller(dto, ct);
-
-            return Ok();
+            return result.IsSuccess
+            ? Ok()
+            : _errorFactoryHandler.GetHandler(result.Errors.First()).Handle(result.Errors.First());
         }
 
-        [HttpPost("register-customer")]
-        public async Task<ActionResult> RegisterCustomer([FromBody] UserCustomerRegisterRequest request, CancellationToken ct)
+        [HttpPost("register/customer")]
+        public async Task<IActionResult> RegisterCustomer([FromBody] UserProfileCustomerRegisterRequest request, CancellationToken ct)
         {
-            // TODO: validation User
+            var result = await _authService.RegisterCustomer(request, ct);
 
-            var user = _mapper.Map<UserRegisterDto>(request.User);
-            var customer = _mapper.Map<CustomerRegisterDto>(request.Customer);
-
-            UserCustomerRegisterDto dto = new UserCustomerRegisterDto(user, customer);
-
-            await _service.RegisterCustomer(dto, ct);
-
-            return Ok();
+            return result.IsSuccess
+                ? Ok()
+                : _errorFactoryHandler.GetHandler(result.Errors.First()).Handle(result.Errors.First());
         }
     }
 }

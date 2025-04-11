@@ -1,15 +1,14 @@
-﻿using Core.Contracts.Dtos;
+﻿using Core.Contracts.Messages;
+using Core.Contracts.Requests;
+using FluentResults;
+using static Core.Interfaces.Constraints.IUserConstraints;
 
 namespace Core.Interfaces
 {
     public interface IUserService : IService
     {
-        Task<string> Login(UserLoginDto dto, CancellationToken ct);
+        Task<Result<UserCreateMessage>> AddUser(UserRole role, UserRegisterRequest request, CancellationToken ct);
 
-        Task RegisterAdmin(UserAdminRegisterDto dto, CancellationToken ct);
-
-        Task RegisterSeller(UserSellerRegisterDto dto, CancellationToken ct);
-
-        Task RegisterCustomer(UserCustomerRegisterDto dto, CancellationToken ct);
+        Task<Result> UpdateUser();
     }
 }

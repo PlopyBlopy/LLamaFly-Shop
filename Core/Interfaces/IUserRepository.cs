@@ -1,12 +1,14 @@
-﻿using Core.Entities;
-using Core.Models;
+﻿using Core.Models;
+using FluentResults;
 
 namespace Core.Interfaces
 {
     public interface IUserRepository : IRepository
     {
-        Task Add(User model, CancellationToken ct);
+        Task<Result> Add(User model, CancellationToken ct);
 
-        Task<User>? Get(string identifier, CancellationToken ct);
+        Task<Result<User>> Get(string identifier, CancellationToken ct);
+
+        Task<Result<User>> GetById(Guid id, CancellationToken ct);
     }
 }
