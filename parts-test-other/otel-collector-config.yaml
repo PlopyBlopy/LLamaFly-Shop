@@ -1,0 +1,79 @@
+receivers:
+  otlp:
+    protocols:
+      grpc: {}
+      http: {}
+
+exporters:
+  debug:
+    verbosity: detailed
+
+  prometheus:
+    endpoint: "0.0.0.0:9091"
+
+  loki:
+    endpoint: "http://loki:3100/loki/api/v1/push"
+
+  otlp/tempo:
+    endpoint: "tempo:4317"
+    tls:
+      insecure: true
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [otlp/tempo]
+    metrics:
+      receivers: [otlp]
+      exporters: [prometheus]
+    logs:
+      receivers: [otlp]
+      exporters: [loki]
+# ===========================================================================
+# receivers:
+#   otlp:
+#     protocols:
+#       # принимает данные по gRPC (порт 4317)
+#       grpc:
+#       # принимает данные по HTTP (порт 4318)
+#       http:
+
+# exporters:
+#   logging:
+#     loglevel: info
+#   otlp:
+#     prometheus:
+#       endpoint: "prometheus:9090" # сервис Prometheus в Docker-сети
+#     loki:
+#       endpoint: "http://loki:3100/loki/api/v1/push" # сервис Loki в Docker-сети
+#     tempo:
+#       endpoint: "tempo:4317" # сервис Tempo в Docker-сети
+#     tls:
+#       insecure: true # отключает TLS
+
+# service:
+#   pipelines:
+#     logs:
+#       receivers: [otlp]
+#       exporters: [loki]
+#     metrics:
+#       receivers: [otlp]
+#       exporters: [prometheus]
+#     traces:
+#       receivers: [otlp]
+#       exporters:
+#         [tempo]
+
+# ===========================================================================
+
+# endpoint: "0.0.0.0:4317"
+# exporters:
+# prometheus:
+#   endpoint: "0.0.0.0:9091" # сервис Prometheus в Docker-сети
+# loki:
+#   endpoint: "http://loki:3100/loki/api/v1/push" # сервис Loki в Docker-сети
+# otlp/tempo:
+#   endpoint: "tempo:4317" # сервис Tempo в Docker-сети
+#   tls:
+#     insecure: true # отключает TLS

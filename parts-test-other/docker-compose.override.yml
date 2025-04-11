@@ -1,0 +1,76 @@
+services:
+  otel-collector:
+    ports:
+      - "4317:4317" # OTLP gRPC
+      - "4318:4318" # OTLP HTTP
+      - "9091:9091"
+
+    networks:
+      - services-observability
+
+  prometheus:
+    ports:
+      - "9090:9090"
+    # network_mode: "host"
+    networks:
+      - services-observability
+
+  loki:
+    ports:
+      - "3100:3100"
+    networks:
+      - services-observability
+
+  tempo:
+    ports:
+      - "3200:3200" # Порты для Jaeger и других протоколов
+      # - "4317:4317"
+    networks:
+      - services-observability
+
+  grafana:
+    ports:
+      - "3000:3000"
+    networks:
+      - services-observability
+
+networks:
+  services-observability:
+    driver: bridge
+# services:
+#   otel-collector:
+#     ports:
+#       - "4317:4317" # OTLP gRPC
+#       - "4318:4318" # OTLP HTTP
+#       - "9091:9091"
+#     networks:
+#       - services-observability
+
+#   prometheus:
+#     ports:
+#       - "9090:9090"
+#     networks:
+#       - services-observability
+
+#   loki:
+#     ports:
+#       - "3100:3100"
+#     networks:
+#       - services-observability
+
+#   tempo:
+#     ports:
+#       # - "4317:4317" # OTLP/gRPC порт
+#       - "3200:3200" # Порты для Jaeger и других протоколов
+#     networks:
+#       - services-observability
+
+#   grafana:
+#     ports:
+#       - "3000:3000"
+#     networks:
+#       - services-observability
+
+# networks:
+#   services-observability:
+#     driver: bridge

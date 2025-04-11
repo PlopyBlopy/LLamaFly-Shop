@@ -1,0 +1,67 @@
+networks:
+  shared-network:
+    external: true
+    name: llamafly-network
+
+volumes:
+  product-images:
+
+services:
+  nginx.proxy:
+    ports:
+      - "80:80"
+    networks:
+      - shared-network
+
+  frontend.service:
+    ports:
+      - "5173:80"
+    networks:
+      - shared-network
+
+  auth.service:
+    ports:
+      - "8001:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - Urls__FrontendServiceUrl=${FRONTEND_URL}
+      - Kafka__Producer__AdminCreate__BootstrapServers=${KAFKA_BOOTSTRAPSERVERS}
+      - Kafka__Producer__SellerCreate__BootstrapServers=${KAFKA_BOOTSTRAPSERVERS}
+      - Kafka__Producer__CustomerCreate__BootstrapServers=${KAFKA_BOOTSTRAPSERVERS}
+    networks:
+      - shared-network
+
+  profile.service:
+    ports:
+      - "8002:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - Urls__FrontendServiceUrl=${FRONTEND_URL}
+      - Kafka__Consumer__AdminCreate__BootstrapServers=${KAFKA_BOOTSTRAPSERVERS}
+      - Kafka__Consumer__SellerCreate__BootstrapServers=${KAFKA_BOOTSTRAPSERVERS}
+      - Kafka__Consumer__CustomerCreate__BootstrapServers=${KAFKA_BOOTSTRAPSERVERS}
+    networks:
+      - shared-network
+
+  product.service:
+    ports:
+      - "8003:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - Urls__FrontendServiceUrl=${FRONTEND_URL}
+    networks:
+      - shared-network
+
+  image.service:
+    ports:
+      - "8004:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - Storage__RootPath=/app/storage/images
+      - Urls__FrontendServiceUrl=${FRONTEND_URL}
+    networks:
+      - shared-network

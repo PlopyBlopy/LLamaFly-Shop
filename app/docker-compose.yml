@@ -1,0 +1,60 @@
+name: LlamaFly-app
+
+volumes:
+  image-data:
+
+services:
+  nginx.proxy:
+    image: nginx:latest
+    container_name: nginx.proxy
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - frontend.service
+      - auth.service
+      - profile.service
+      - product.service
+      - image.service
+
+  frontend.service:
+    image: frontend.service
+    container_name: frontend.service
+    build:
+      context: ../../LLamaFly-frontend/
+      dockerfile: Dockerfile.prod
+    depends_on:
+      - auth.service
+      - profile.service
+      - product.service
+      - image.service
+
+  auth.service:
+    image: auth.service
+    container_name: auth.service
+    build:
+      context: ../../AuthService/
+      dockerfile: Dockerfile
+
+  profile.service:
+    image: profile.service
+    container_name: profile.service
+    build:
+      context: ../../ProfileService/
+      dockerfile: Dockerfile
+
+  product.service:
+    image: product.service
+    container_name: product.service
+    build:
+      context: ../../ProductService/
+      dockerfile: Dockerfile
+
+  image.service:
+    image: image.service
+    container_name: image.service
+    build:
+      context: ../../ImageService/
+      dockerfile: Dockerfile
+    volumes:
+      - ../../ImageService/Storage/images:/app/storage/images
+      # - image-data:/app/storage/images

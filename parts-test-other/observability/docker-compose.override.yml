@@ -1,0 +1,26 @@
+services:
+  seq:
+    ports:
+      - "5341:5341" # Web UI и API
+      - "8081:80" # Web-интерфейс (опционально)
+    networks:
+      - services-observability
+
+  # jaeger:
+  # ports:
+  #   - "16686:16686" # Web UI
+  #   - "14250:14250" # gRPC endpoint
+  # networks:
+  #   - services-observability
+
+  otel-collector:
+    ports:
+      - "4317:4317" # OTLP gRPC
+      - "4318:4318" # OTLP HTTP
+      - "8888:8888" # Metrics (опционально)
+    networks:
+      - services-observability
+
+networks:
+  services-observability:
+    driver: bridge

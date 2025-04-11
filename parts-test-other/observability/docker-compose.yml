@@ -1,0 +1,25 @@
+name: LlamaFly-observability
+
+services:
+  seq:
+    image: datalust/seq:latest
+    container_name: seq
+    environment:
+      - ACCEPT_EULA=Y
+
+  # jaeger:
+  #   image: jaegertracing/all-in-one:latest
+  #   container_name: jaeger
+  #   environment:
+  #     - COLLECTOR_OTLP_ENABLED=true # Включаем OTLP-приемник
+
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.96.0 # Фиксируем версию
+    container_name: otel-collector
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - ./config/otel-collector-config.yaml:/etc/otel-collector-config.yaml
+    # environment:
+    #   - OTEL_RESOURCE_ATTRIBUTES=service.name=product-service
+    depends_on:
+      - seq
