@@ -4,88 +4,60 @@ import {
   TextField,
   Box,
   Grid,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
   SelectChangeEvent,
   Typography,
 } from "@mui/material";
-import { ProductForm } from "..";
 import { ImageUploader } from "../../image-uploader";
-import { Image } from "../../../shared/image-service-images";
+import { MarkdownEditor } from "../../field-markdown/ui";
+import { CategoryCascadeSelect } from "../../category-cascade-selector";
+import { ProductForm } from "../../../shared/forms/product-form";
+import { ProductFormProps } from "../config";
+import { Image } from "@/shared/services/image-service-product-images";
 
-interface Category {
-  id: string;
-  title: string;
-  subcategories: Category[];
-}
+// type SellerProp = {
+//   id: string;
+//   name: string;
+//   surname: string;
+//   patronymic: string;
+// };
 
-interface ProductFormProps {
-  onSubmit: (formData: ProductForm) => void;
-  categories: Category[];
-  sellers: string[];
-}
+// type ProductFormProps = {
+//   onSubmit: (formData: ProductForm) => void;
+//   categories: Category[];
+//   seller: SellerProp;
+// };
 
-export const ProductAddForm: React.FC<ProductFormProps> = ({
+export const ProductAddForm = ({
   onSubmit,
   categories,
-  sellers,
-}) => {
+  seller,
+}: ProductFormProps) => {
   const [formData, setFormData] = useState<Omit<ProductForm, "images">>({
     title: "",
     description: "",
     price: 0,
     categoryId: "",
-    sellerId: "",
+    sellerId: seller.id,
   });
   const [images, setImages] = useState<Image[]>([]);
-  const [selectedCategories, setSelectedCategories] = useState<Category[][]>([
-    [],
-  ]);
-
-  const handleCategoryChange = (level: number, categoryId: string) => {
-    const selectedCategory = findCategory(categories, categoryId);
-    const newSelected = selectedCategories.slice(0, level);
-    newSelected[level] = [selectedCategory];
-
-    if (selectedCategory?.subcategories?.length > 0) {
-      newSelected[level + 1] = [];
-    }
-
-    setSelectedCategories(newSelected);
-    setFormData((prev) => ({
-      ...prev,
-      categoryId: selectedCategory?.subcategories?.length ? "" : categoryId,
-    }));
-  };
-
-  const findCategory = (
-    categories: Category[],
-    id: string
-  ): Category | null => {
-    for (const category of categories) {
-      if (category.id === id) return category;
-      const found = findCategory(category.subcategories, id);
-      if (found) return found;
-    }
-    return null;
-  };
-
-  const getAvailableCategories = (level: number): Category[] => {
-    if (level === 0) return categories;
-    return selectedCategories[level - 1][0]?.subcategories || [];
-  };
 
   const handleChange = (
     e:
       | React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
       | SelectChangeEvent<string>
   ) => {
-    const { name, value } = e.target;
+    const target = e.target as HTMLInputElement; // Явное приведение типа
     setFormData((prev) => ({
       ...prev,
-      [name]: name === "price" ? Number(value) : value,
+      [target.name]:
+        target.name === "price" ? Number(target.value) : target.value,
+    }));
+  };
+
+  const handleDescriptionChange = (description: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      description,
     }));
   };
 
@@ -99,6 +71,17 @@ export const ProductAddForm: React.FC<ProductFormProps> = ({
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <ImageUploader onImagesChange={setImages} />
+        </Grid>
+
+        {/* Секция Markdown редактора */}
+        <Grid item xs={12}>
+          <Typography variant="h6" gutterBottom>
+            Описание товара
+          </Typography>
+          <MarkdownEditor
+            onChange={handleDescriptionChange}
+            value={formData.description}
+          />
         </Grid>
 
         <Grid item xs={12} sm={6}>
@@ -125,63 +108,39 @@ export const ProductAddForm: React.FC<ProductFormProps> = ({
           />
         </Grid>
 
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            label="Description"
-            name="description"
-            multiline
-            rows={4}
-            value={formData.description}
-            onChange={handleChange}
-            required
-          />
-        </Grid>
-
         {/* Каскадный выбор категорий */}
         <Grid item xs={12}>
           <Typography variant="subtitle1" gutterBottom>
             Выбор категории
           </Typography>
-          <Box display="flex" gap={2} flexWrap="wrap">
-            {selectedCategories.map((_, level) => {
-              const availableCategories = getAvailableCategories(level);
-              return availableCategories.length > 0 ? (
-                <FormControl key={level} sx={{ minWidth: 200 }}>
-                  <InputLabel>{`Уровень ${level + 1}`}</InputLabel>
-                  <Select
-                    value={selectedCategories[level]?.[0]?.id || ""}
-                    onChange={(e) =>
-                      handleCategoryChange(level, e.target.value)
-                    }
-                    label={`Уровень ${level + 1}`}>
-                    {availableCategories.map((category) => (
-                      <MenuItem key={category.id} value={category.id}>
-                        {category.title}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-              ) : null;
-            })}
-          </Box>
+          <CategoryCascadeSelect
+            categories={categories}
+            value={formData.categoryId}
+            onCategoryChange={(categoryId) =>
+              setFormData((prev) => ({ ...prev, categoryId }))
+            }
+          />
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <FormControl fullWidth required>
-            <InputLabel>Seller</InputLabel>
-            <Select
-              name="sellerId"
-              value={formData.sellerId}
-              label="Seller"
-              onChange={handleChange}>
-              {sellers.map((seller) => (
-                <MenuItem key={seller} value={seller}>
-                  {seller}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+          <Typography variant="h5" component="h2">
+            Продавец:{" "}
+            <span
+              style={{
+                backgroundColor: "#ffeb3b",
+                color: "#000",
+                padding: "2px 6px",
+                borderRadius: "4px",
+                marginLeft: "4px",
+              }}>
+              {seller.name +
+                " " +
+                seller.surname +
+                " " +
+                seller.patronymic +
+                " "}
+            </span>
+          </Typography>
         </Grid>
 
         <Grid item xs={12}>

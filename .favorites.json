@@ -133,15 +133,6 @@
     {
         "type": "Directory",
         "name": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\app\\routing",
-        "parent_id": "tu7HPJxayq4ZmrpB",
-        "fsPath": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\app\\routing",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "WaIsEtxO8AwdNjn3"
-    },
-    {
-        "type": "Directory",
-        "name": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\app\\routing",
         "parent_id": "ScPehl4A18TECZRN",
         "fsPath": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\src\\app\\routing",
         "workspaceRoot": null,
@@ -156,5 +147,22 @@
         "workspaceRoot": null,
         "workspacePath": null,
         "id": "mELzY5oGQNAvVl9M"
+    },
+    {
+        "type": "Group",
+        "name": "other",
+        "parent_id": "tu7HPJxayq4ZmrpB",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "E1IJkMvLNH9FCwU4"
+    },
+    {
+        "type": "File",
+        "name": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\public\\other\\mark-helper.ts",
+        "parent_id": "E1IJkMvLNH9FCwU4",
+        "fsPath": "c:\\Users\\Alexey\\source\\repos\\Shopee-App\\LLamaFly-frontend\\public\\other\\mark-helper.ts",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "l9VIacNBRDse60zM"
     }
 ]

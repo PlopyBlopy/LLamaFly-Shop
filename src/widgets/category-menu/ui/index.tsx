@@ -6,13 +6,12 @@ import {
   SORTORDER,
   SORTPROP,
 } from "../../../entities/stores/filter-store";
-import { useStore } from "../../../shared/contexts/store-context";
 import { useAppNavigate } from "../../../shared/routing/routes";
+import { useStore } from "../../../shared/hooks/store-hook";
 
 export const CategoryComponent = observer(() => {
-  const { goMain } = useAppNavigate();
+  const { goToMain } = useAppNavigate();
 
-  const rootStore = useStore();
   const {
     productCardStore: { getProductCardListAction },
     categoryStore: {
@@ -22,11 +21,9 @@ export const CategoryComponent = observer(() => {
       getCategoryListAction,
     },
     filterStore: { setFilterParams },
-  } = rootStore;
+  } = useStore();
 
-  const onCategorySelect = async (categoryId: string) => {
-    console.log("Category select: " + categoryId);
-
+  const handleCategorySelect = async (categoryId: string) => {
     setFilterParams({ search: SEARCH });
     setFilterParams({ categoryId: categoryId });
     setFilterParams({ sortProp: SORTPROP });
@@ -37,16 +34,26 @@ export const CategoryComponent = observer(() => {
     onPageOpen();
   };
 
-  const onCategoryShow = async () => {
-    await getCategoryListAction();
-  };
-
   if (categoryListError) {
     return <Result title={categoryListError} />;
   }
 
+  const handleCategoryShow = async () => {
+    await getCategoryListAction();
+  };
+
+  // useEffect(() => {
+  //   const getCategories = async () => {
+  //     await getCategoryListAction();
+  //   };
+
+  //   if (categoryList.length == 0) {
+  //     getCategories();
+  //   }
+  // }, [categoryList.length]);
+
   const onPageOpen = () => {
-    goMain();
+    goToMain();
   };
 
   return (
@@ -54,8 +61,8 @@ export const CategoryComponent = observer(() => {
       <CategoryDrawer
         categoryList={categoryList}
         isLoading={isLoading}
-        onCategoryShow={onCategoryShow}
-        onCategorySelect={onCategorySelect}
+        onCategoryShow={handleCategoryShow}
+        onCategorySelect={handleCategorySelect}
       />
     </div>
   );

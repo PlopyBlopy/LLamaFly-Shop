@@ -18,16 +18,18 @@ import { Box, Grid, Typography, Paper } from "@mui/material";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { useDropzone } from "react-dropzone";
 import { SortableItem } from "../../image-sortable";
-import { Image } from "../../../shared/image-service-images";
 import styles from "./index.module.css";
-import { MarkdownEditor } from "../../field-markdown/ui";
+import { Image } from "@/shared/services/image-service-product-images";
 
 interface ImageUploaderProps {
   onImagesChange: (images: Image[]) => void;
 }
 
-interface InternalImage extends Image {
+interface InternalImage {
   dndId: number;
+  order: number;
+  image: File; // Store the actual File
+  preview: string; // Data URL for preview
 }
 
 export const ImageUploader: React.FC<ImageUploaderProps> = ({
@@ -56,12 +58,16 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
       const newImages: InternalImage[] = acceptedFiles.map((file) => ({
         dndId: generateUniqueId(),
         order: previews.length,
-        image: URL.createObjectURL(file),
+        image: file,
+        preview: URL.createObjectURL(file),
       }));
 
       setPreviews((prev) => {
         const updatedPreviews = updateOrder([...prev, ...newImages]);
-        onImagesChange(updatedPreviews.map(({ dndId, ...rest }) => rest));
+        // Pass only necessary data to parent
+        onImagesChange(
+          updatedPreviews.map(({ preview, dndId, ...rest }) => rest)
+        );
         return updatedPreviews;
       });
     },
@@ -70,7 +76,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
-    accept: { "image/*": [".jpeg", ".jpg", ".png", ".gif"] },
+    accept: { "image/*": [".jpeg", ".jpg", ".png"] },
   });
 
   const handleDragStart = (event: any) => {
@@ -120,7 +126,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
               <Grid item xs={6} sm={4} md={3} key={preview.dndId}>
                 <SortableItem
                   id={preview.dndId}
-                  preview={preview.image}
+                  preview={preview.preview}
                   onRemove={() => handleRemove(preview.dndId)}
                 />
               </Grid>
@@ -132,7 +138,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
           {activeId ? (
             <div className={styles.dragOverlay}>
               <img
-                src={previews.find((img) => img.dndId === activeId)?.image}
+                src={previews.find((img) => img.dndId === activeId)?.preview}
                 alt=""
                 className={styles.dragImage}
               />
@@ -157,14 +163,6 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
           </Typography>
         </Box>
       </Paper>
-
-      {/* Секция Markdown редактора */}
-      <Box mt={4}>
-        <Typography variant="h6" gutterBottom>
-          Описание товара
-        </Typography>
-        <MarkdownEditor />
-      </Box>
     </Box>
   );
 };

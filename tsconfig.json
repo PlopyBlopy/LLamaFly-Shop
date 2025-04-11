@@ -1,7 +1,41 @@
+// {
+//   "files": [],
+//   "references": [
+//     { "path": "./tsconfig.app.json" },
+//     { "path": "./tsconfig.node.json" }
+//   ],
+//   "compilerOptions": {
+//     "types": ["vite/client"],
+//     "baseUrl": ".",
+//     "paths": {
+//       "@/*": ["./src/*"],
+//       "public/*": ["./public/*"],
+//       "app/*": ["./src/app/*"],
+//       "pages/*": ["./src/pages/*"],
+//       "widgets/*": ["./src/widgets/*"],
+//       "entities/*": ["./src/entities/*"],
+//       "features/*": ["./src/features/*"],
+//       "shared/*": ["./src/shared/*"]
+//     }
+//   }
+// }
+
 {
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    "types": ["vite/client"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "features/*": ["./features/*"],
+      "shared/*": ["./shared/*"]
+    }
+  }
 }
+
+// "experimentalDecorators": true,
+// "emitDecoratorMetadata": true,

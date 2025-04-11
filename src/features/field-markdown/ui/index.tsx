@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
@@ -6,8 +6,23 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import remarkGfm from "remark-gfm";
 
-export const MarkdownEditor = () => {
+interface Props {
+  onChange: (value: string) => void; // Принимаем только строку
+  value?: string;
+}
+
+export const MarkdownEditor = ({ onChange, value }: Props) => {
   const [markdown, setMarkdown] = useState("");
+
+  useEffect(() => {
+    setMarkdown(value || "");
+  }, [value]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const newValue = event.target.value;
+    setMarkdown(newValue);
+    onChange(newValue); // Передаем только строку
+  };
 
   return (
     <Box sx={{ display: "flex", gap: 3, flexDirection: "column" }}>
@@ -17,7 +32,7 @@ export const MarkdownEditor = () => {
         fullWidth
         minRows={10}
         value={markdown}
-        onChange={(e) => setMarkdown(e.target.value)}
+        onChange={handleChange}
         variant="outlined"
       />
 

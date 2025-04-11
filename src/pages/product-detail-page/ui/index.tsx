@@ -1,30 +1,32 @@
 import { Result } from "antd";
 import { observer } from "mobx-react-lite";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { ProductDetail } from "../../../features/product-detail";
 import { LoadingCircle } from "../../../features/loading-circle";
-import { useStore } from "../../../shared/contexts/store-context";
+import { useStore } from "../../../shared/hooks/store-hook";
 
 export const ProductDetailPage = observer(() => {
-  const rootStore = useStore();
-
   const {
-    productStore: { getProductAction, product, productError, isLoading },
-  } = rootStore;
+    productStore: { product, productError, isLoading, getProductAction },
+  } = useStore();
 
   const [searchParams] = useSearchParams(); // Получаем searchParams
   const id = searchParams.get("id");
 
-  useEffect(() => {
-    if (id) {
-      getProductAction(id);
-    }
-  }, [id, getProductAction]);
+  const hasChecked = useRef(false);
 
-  if (productError) {
-    return <Result title={productError} />;
-  }
+  useEffect(() => {
+    const checkProduct = async () => {
+      if (id && hasChecked.current) return;
+      hasChecked.current = true;
+
+      await getProductAction(id!);
+    };
+
+    checkProduct();
+  }, [id]);
+
   if (!product) {
     return <div>Product not found</div>; // Обработка случая, когда product отсутствует
   }
@@ -45,4 +47,3 @@ export const ProductDetailPage = observer(() => {
     </div>
   );
 });
-// image={images[product.id]}

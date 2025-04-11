@@ -68,19 +68,13 @@ export const ProfileCustomerDropdown = ({ onMenuAction }: Props) => {
         </MenuItem>
         <MenuItem
           onClick={() => {
-            handleMenuClose(ProfileCommonActions.SWITCH_ROLE);
-          }}>
-          Сменить на продавца
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
             handleMenuClose(ProfileCommonActions.SETTINGS);
           }}>
           Настройки
         </MenuItem>
         <MenuItem
           onClick={() => {
-            handleMenuClose(ProfileCommonActions.PROFILE);
+            handleMenuClose(ProfileCommonActions.LOGOUT);
           }}>
           Выйти
         </MenuItem>

@@ -1,32 +1,37 @@
-import { makeAutoObservable, runInAction } from "mobx";
+import { action, makeObservable, observable, runInAction } from "mobx";
 import ProductImageStore from "../../product-image-store/model";
-import {
-  addProduct,
-  getProductById,
-  Product,
-  ProductCreate,
-} from "../../../../shared/product-service-products";
+
 import { ProductForm } from "../../../../features/product-add-form";
+import { addProduct, getProductById, Product, ProductCreate } from "../../../../shared/services/product-service-products";
+import { AxiosInstance } from "axios";
 
 export default class ProductStore {
-  private productImageStore!: ProductImageStore;
+  private readonly api: AxiosInstance;
+  private productImageStore: ProductImageStore;
 
-  public product: Product | null = null;
-  public productError: string = "";
-  public isLoading: boolean = false;
+  product: Product | null = null;
+  productError: string = "";
+  isLoading: boolean = false;
 
-  constructor() {
-    makeAutoObservable(this);
+  constructor(api: AxiosInstance, productImageStore: ProductImageStore) {
+    makeObservable(this, {
+      product: observable,
+      productError: observable,
+      isLoading: observable,
+      addProductAction: action,
+      getProductAction: action,
+    });
+
+    this.api = api;
+    this.productImageStore = productImageStore;
   }
 
-  setDependencies(deps: { productImageStore: ProductImageStore }) {
-    this.productImageStore = deps.productImageStore;
-  }
-
-  addProductAction = async (product: ProductForm) => {
+  addProductAction = async (product: ProductForm): Promise<string | null> => {
     try {
-      this.isLoading = true;
-      this.productError = "";
+      runInAction(() => {
+        this.isLoading = true;
+        this.productError = "";
+      });
 
       const productCreate: ProductCreate = {
         title: product.title,
@@ -36,13 +41,15 @@ export default class ProductStore {
         sellerId: product.sellerId,
       };
 
-      await addProduct(productCreate);
+      const response = await addProduct(this.api, productCreate);
+      return response;
     } catch (error) {
       if (error instanceof Error) {
         runInAction(() => {
           this.productError = error.message;
         });
       }
+      return null;
     } finally {
       runInAction(() => {
         this.isLoading = false;
@@ -55,15 +62,18 @@ export default class ProductStore {
       this.isLoading = true;
       this.productError = "";
 
-      const data = await getProductById(id);
+      const data = await getProductById(this.api, id);
 
       runInAction(() => {
         this.product = data;
       });
 
       // Загружаем изображение для продукта
-      if (this.product != null)
-        await this.productImageStore.getProductImageAction(this.product);
+      if (this.product != null) {
+        // await this.productImageStore.getProductImageAction(this.product);
+        const images = await this.productImageStore.getProductImagesAction(this.product.id);
+        this.product.images = images;
+      }
     } catch (error) {
       if (error instanceof Error) {
         runInAction(() => {

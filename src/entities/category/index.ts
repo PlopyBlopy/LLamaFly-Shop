@@ -1,1 +1,0 @@
-export * as categoryStore from "./model/category-store"

@@ -1,0 +1,25 @@
+.main {
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  text-align: center;
+}
+
+.containerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.containerForm > * {
+  width: 100%;
+  max-width: 400px;
+}
+
+.buttonRegister {
+  max-width: 200px;
+}

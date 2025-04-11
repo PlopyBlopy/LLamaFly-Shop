@@ -12,10 +12,10 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { Category } from "../../../shared/product-service-categories";
 import { categoryIcons, defaultIcon } from "../config";
 import { LoadingCircle } from "../../loading-circle";
 import styles from "./index.module.css";
+import { Category } from "../../../shared/services/product-service-categories";
 
 type Props = {
   categoryList: Category[];

@@ -3,7 +3,6 @@ import { Container, Box, CssBaseline } from "@mui/material";
 import { MiddleLayout } from "../../middle-layout";
 import { HeaderLayout } from "../../header-layout";
 import { FooterLayout } from "../../footer-layout";
-
 import styles from "./index.module.css";
 
 export const MainLayout = () => {
@@ -15,7 +14,7 @@ export const MainLayout = () => {
         <HeaderLayout />
       </Box>
       {/* Content */}
-      <Box component="main">
+      <Box component="main" className={styles.main}>
         <MiddleLayout />
       </Box>
       {/* Footer */}

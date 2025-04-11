@@ -1,3 +1,17 @@
+// {
+//   "extends": "./tsconfig.json",
+//   "compilerOptions": {
+//     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+//     "target": "ES2022",
+//     "lib": ["ES2023"],
+//     "module": "ESNext",
+//     "moduleResolution": "node", // Изменено с "bundler" на "node"
+//     "types": ["node"] // Добавлены типы для Node.js
+//   },
+//   "include": ["vite.config.ts", "scripts/**/*"],
+//   "exclude": ["src"]
+// }
+
 {
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",

@@ -62,15 +62,15 @@ export const ProfileSellerDropdown = ({ onMenuAction }: Props) => {
         </MenuItem>
         <MenuItem
           onClick={() => {
-            handleMenuClose(ProfileSellerActions.ADD_PRODUCT);
+            handleMenuClose(ProfileSellerActions.MY_PRODUCTS);
           }}>
-          Добавить продукт
+          Мои продукты
         </MenuItem>
         <MenuItem
           onClick={() => {
-            handleMenuClose(ProfileCommonActions.SWITCH_ROLE);
+            handleMenuClose(ProfileSellerActions.ADD_PRODUCT);
           }}>
-          Сменить на покупателя
+          Добавить продукт
         </MenuItem>
         <MenuItem
           onClick={() => {
@@ -80,7 +80,7 @@ export const ProfileSellerDropdown = ({ onMenuAction }: Props) => {
         </MenuItem>
         <MenuItem
           onClick={() => {
-            handleMenuClose(ProfileCommonActions.PROFILE);
+            handleMenuClose(ProfileCommonActions.LOGOUT);
           }}>
           Выйти
         </MenuItem>

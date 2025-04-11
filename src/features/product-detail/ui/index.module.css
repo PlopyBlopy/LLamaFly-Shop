@@ -1,89 +1,95 @@
 .container {
-    padding: 24px;
-  }
-  
-  .card {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 16px;
-  }
-  
-  .image {
-    /* Минимальные размеры */
-    min-width: 500px;
-    min-height: 500px;
+  padding: 24px;
+}
 
-/* Максимальные размеры */
-    max-width: 500px;
-    max-height: 700px;
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.image {
+  /* Минимальные размеры */
+  min-width: 500px;
+  min-height: 500px;
+
+  /* Максимальные размеры */
+  max-width: 500px;
+  max-height: 700px;
 
   /* Сохранение пропорций изображения */
-    object-fit: cover; /* Обрезает изображение, чтобы оно заполнило контейнер */
-    width: 100%; /* Растягивает изображение по ширине контейнера */
-    height: auto; /* Автоматическая высота для сохранения пропорций */
-    border-radius: 15px;
-  }
-  
-  .content {
-    padding: 0;
-  }
-  
-  .title {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
-  
-  .ratingContainer {
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
-  }
-  
-  .ratingText {
-    margin-left: 8px;
-    color: #666;
-  }
-  
-  .price {
-    font-size: 32px;
-    font-weight: 700;
-    color: #1976d2; /* Синий цвет для цены */
-    margin-bottom: 24px;
-  }
+  object-fit: cover; /* Обрезает изображение, чтобы оно заполнило контейнер */
+  width: 100%; /* Растягивает изображение по ширине контейнера */
+  height: auto; /* Автоматическая высота для сохранения пропорций */
+  border-radius: 15px;
+}
+.imageGalleryContainer {
+  height: 600px; /* Фиксированная высота или любая другая */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content {
+  padding: 0;
+}
 
-  
-  .buttons {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 24px;
-  }
-  
-  .buyButton {
-    background-color: #ff5722; /* Оранжевый цвет для кнопки */
-    color: #fff;
-    font-weight: 600;
-    padding: 12px 24px;
-  }
-  
-  .cartButton {
-    border-color: #ff5722; /* Оранжевый цвет для кнопки */
-    color: #ff5722;
-    font-weight: 600;
-    padding: 12px 24px;
-  }
-  
-  .divider {
-    margin: 24px 0;
-  }
-  
-  .chips {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 24px;
-  }
-  
-  .description {
-    color: #555;
-    line-height: 1.6;
-  }
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.ratingContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.ratingText {
+  margin-left: 8px;
+  color: #666;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1976d2; /* Синий цвет для цены */
+  margin-bottom: 24px;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.buyButton {
+  background-color: #ff5722; /* Оранжевый цвет для кнопки */
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 24px;
+}
+
+.cartButton {
+  border-color: #ff5722; /* Оранжевый цвет для кнопки */
+  color: #ff5722;
+  font-weight: 600;
+  padding: 12px 24px;
+}
+
+.divider {
+  margin: 24px 0;
+}
+
+.chips {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.description {
+  margin: 10px;
+  max-width: auto;
+  color: #555;
+  /* line-height: 1.6; */
+}

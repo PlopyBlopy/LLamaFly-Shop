@@ -1,3 +1,24 @@
+// {
+//   "extends": "./tsconfig.json",
+//   "compilerOptions": {
+//     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+//     "target": "ES2020",
+//     "useDefineForClassFields": true,
+//     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+//     "module": "ESNext",
+//     "moduleResolution": "bundler",
+//     "allowImportingTsExtensions": true,
+//     "isolatedModules": true,
+//     "noEmit": true,
+//     "jsx": "react-jsx",
+//     "strict": true,
+//     "baseUrl": "src", // Перемещено сюда из базового
+//     "paths": {} // Удалены дублирующиеся алиасы
+//   },
+//   "include": ["src"],
+//   "exclude": ["**/*.test.ts", "vite.config.ts"]
+// }
+
 {
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
@@ -6,6 +27,14 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["./*"],
+      "features/*": ["./features/*"],
+      "shared/*": ["./shared/*"]
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
 
     /* Bundler mode */
     "moduleResolution": "bundler",

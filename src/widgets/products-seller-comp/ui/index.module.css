@@ -1,0 +1,44 @@
+.container {
+  padding: 20px;
+  max-width: 1200px; /* Ограничиваем ширину контейнера */
+  margin: 0 auto; /* Центрируем контейнер */
+}
+
+.header {
+  padding: 20px;
+  font-weight: bolder;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 колонок */
+  gap: 16px; /* Расстояние между карточками */
+}
+
+/* Адаптация для экранов меньше 1200px */
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+  }
+}
+
+/* Адаптация для экранов меньше 900px */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+  }
+}
+
+/* Адаптация для экранов меньше 600px */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+  }
+}
+
+/* Адаптация для экранов меньше 400px */
+@media (max-width: 400px) {
+  .grid {
+    grid-template-columns: 1fr; /* 1 колонка */
+  }
+}

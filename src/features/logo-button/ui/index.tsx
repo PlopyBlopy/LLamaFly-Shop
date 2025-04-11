@@ -9,7 +9,7 @@ export const LogoButton = ({ onPageOpen }: Props) => {
     <>
       <IconButton onClick={onPageOpen} disableRipple>
         <img
-          src="/src/assets/LlamaFly-full-ver1-logo.png"
+          src="/logo/LlamaFly-full-ver1-logo.png"
           alt="Logo"
           className={styles.logoImage}
         />

@@ -1,32 +1,53 @@
-import { makeAutoObservable, runInAction } from "mobx";
-import { Category, getCategories } from "../../../../shared/product-service-categories";
+import { action, makeObservable, observable, runInAction } from "mobx";
+import {
+  Category,
+  getCategories,
+} from "../../../../shared/services/product-service-categories";
+import { AxiosInstance } from "axios";
+// import { injectable } from "tsyringe";
 
-export default class CategoryStore{
-    categoryList: Category[] = [];
-    categoryListError = '';
-    isLoading = false;
+// @injectable()
+export default class CategoryStore {
+  private readonly api: AxiosInstance;
+  categoryList: Category[] = [];
+  categoryListError = "";
+  isLoading = false;
 
-    constructor(){
-        makeAutoObservable(this);
-    }
+  constructor(api: AxiosInstance) {
+    makeObservable(this, {
+      categoryList: observable,
+      categoryListError: observable,
+      isLoading: observable,
 
-    getCategoryListAction = async() => {
-        try {
-            this.isLoading = true;
+      getCategoryListAction: action,
+    });
 
-            const data = await getCategories();
+    this.api = api;
+  }
 
-            runInAction(() => {
-                this.categoryList = data;
+  getCategoryListAction = async () => {
+    try {
+      // Проверяем наличие данных и статус загрузки
+      if (this.isLoading || this.categoryList.length > 0) return;
 
-            });
-        } catch (error) {
-            if (error instanceof Error) {
-                runInAction(() => {
-                    this.categoryListError = error.message;
-                });
-            }
-        }
+      // Устанавливаем статус загрузки внутри runInAction
+      runInAction(() => {
+        this.isLoading = true;
+      });
+
+      const data = await getCategories(this.api);
+
+      // Обновляем состояние через runInAction
+      runInAction(() => {
+        this.categoryList = data!;
         this.isLoading = false;
+        this.categoryListError = "";
+      });
+    } catch (error) {
+      runInAction(() => {
+        this.isLoading = false;
+        this.categoryListError = (error as Error).message;
+      });
     }
+  };
 }

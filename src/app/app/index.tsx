@@ -1,6 +1,13 @@
 import { RouterProvider } from "react-router-dom";
-import { Router } from "../routing/index";
+import { Router } from "../routes/index";
+import { StoreProvider } from "../../features/store-provider";
+
+//TODO: изменить название папок, компонентов, сервивов на формат product-add-page, user-login-page и т.д.
 
 export const App = () => {
-  return <RouterProvider router={Router} />;
+  return (
+    <StoreProvider>
+      <RouterProvider router={Router} />
+    </StoreProvider>
+  );
 };
